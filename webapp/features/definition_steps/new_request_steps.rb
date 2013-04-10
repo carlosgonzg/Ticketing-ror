@@ -2,7 +2,7 @@ Given /^I am on the home page$/ do
     pending # express the regexp above with the code you wish you had
 end
 
-When /^I click on "(.*?)"$/ do |arg1|
+When /^I click on: "(.*?)"$/ do |arg1|
     pending # express the regexp above with the code you wish you had
 end
 
