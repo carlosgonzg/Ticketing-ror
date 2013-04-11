@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130411172641) do
+ActiveRecord::Schema.define(:version => 20130411200342) do
 
 # Could not dump table "Users" because of following StandardError
 #   Unknown type 'UserType' for column 'name'
@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(:version => 20130411172641) do
     t.text     "Description"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "updates", :force => true do |t|
   end
 
 end
