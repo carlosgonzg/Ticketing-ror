@@ -8,6 +8,6 @@ class CreateRequests < ActiveRecord::Migration
       t.text :Description
 
       t.timestamps
+    end
   end
- 
 end

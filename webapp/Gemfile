@@ -22,7 +22,7 @@ end
 
 gem 'jquery-rails'
 group :test,:development do
-   gem "cucumber-rails"
+   gem "cucumber-rails", :require =>false
    gem "rspec-rails"
    gem "capybara"
    gem "simplecov"

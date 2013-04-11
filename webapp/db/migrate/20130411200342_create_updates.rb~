@@ -1,6 +1,9 @@
 class CreateUpdates < ActiveRecord::Migration
   def change
     create_table :updates do |t|
-      
+    end
+  end
+  def down
+    drop_table :updates
   end
 end
