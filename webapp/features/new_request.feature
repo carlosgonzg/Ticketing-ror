@@ -2,6 +2,14 @@ Feature: New Request
     In order to avoid creating bad requests
     I want to create or insert new request with good validation
     
+Background: request have been added to Request
+
+Given the following request have been added to Request:
+  |ComputerName | Subject | urgent |
+  | Aladdin     | hi      | yes    |
+  | The         | no      | no     |
+  | When	| be      | yes    |
+
     Scenario: Entering in new request
         Given I am on the home page
         When I click on "New Request"
@@ -22,5 +30,5 @@ Feature: New Request
         Given I am on the "New Request" form
         And I inserted "valid" data on the form
         When I click on the Submit button
-Then I should see an message that says: "The Request was created Successfully"
+        Then I should see an message that says: "The Request was created Successfully"
         And I should get no error 

@@ -1,9 +1,15 @@
+
+Given /the following request have been added to Request:/ do |request_table|
+  request_table.hashes.each do |request|
+    Request.create!(request)
+  end
+end
 Given /^I am on the home page$/ do
-    visit("home page")
+    visit 'http://0.0.0.0:3000/request'
 end
 
-When /^I click on: "(.*?)"$/ do |page_name|
-    visit(page_name)
+When /^I click on "(.*?)"$/ do |page_name|
+  click_on page_name
 end
 
 Then /^I should see the New Request form$/ do

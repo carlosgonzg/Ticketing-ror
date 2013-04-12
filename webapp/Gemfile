@@ -26,6 +26,7 @@ group :test,:development do
    gem "rspec-rails"
    gem "capybara"
    gem "simplecov"
+   gem 'database_cleaner'
 end
 gem "haml"
 gem 'bootstrap-sass'

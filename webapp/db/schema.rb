@@ -26,16 +26,11 @@ ActiveRecord::Schema.define(:version => 20130411200342) do
   end
 
   create_table "updates", :force => true do |t|
-<<<<<<< HEAD
     t.datetime "Date"
     t.text     "UpdateText"
     t.integer  "request_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-=======
-    t.datetime "date"
-    t.text     "text"
->>>>>>> d4c6e2022b37809c71d2cdb855bffe5ab2284dbf
   end
 
 # Could not dump table "users" because of following StandardError

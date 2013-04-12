@@ -4,6 +4,14 @@ As I want to find my results quickly
 I need a search page which provides search criterias
 making my search efficient
 
+Background: request have been added to Request
+
+Given the following request have been added to Request:
+  |ComputerName | Subject | urgent |
+  | Aladdin     | hi      | yes    |
+  | The         | no      | no     |
+  | When	| be      | yes    |
+
 Scenario: clicked on the search window tab
   Given I am on the home page
   When I click on "Search Request"
