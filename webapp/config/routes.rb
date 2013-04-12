@@ -1,6 +1,5 @@
 Webapp::Application.routes.draw do
-    get "update/index"
-
+    resources :update
     resources :request 
     
   # The priority is based upon order of creation:

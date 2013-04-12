@@ -13,20 +13,26 @@
 
 ActiveRecord::Schema.define(:version => 20130411200342) do
 
-# Could not dump table "Users" because of following StandardError
-#   Unknown type 'UserType' for column 'name'
-
   create_table "requests", :force => true do |t|
     t.boolean  "urgent"
     t.integer  "IssueType"
     t.text     "ComputerName"
     t.text     "Subject"
     t.text     "Description"
+    t.text     "Solution"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
   create_table "updates", :force => true do |t|
+    t.datetime "Date"
+    t.text     "UpdateText"
+    t.integer  "request_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
+
+# Could not dump table "users" because of following StandardError
+#   Unknown type 'UserType' for column 'name'
 
 end

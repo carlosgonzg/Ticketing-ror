@@ -1,5 +1,5 @@
 Webapp::Application.routes.draw do
-  get "update/index"
+    resources :update
 
     resources :request 
     
