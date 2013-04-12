@@ -4,8 +4,6 @@ class RequestController < ApplicationController
     end
 
     def show
-	@requests = Request.find(:all)        
-	redirect_to request_index_path
     end
 
  #New Request method
