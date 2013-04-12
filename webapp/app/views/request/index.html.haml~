@@ -50,16 +50,16 @@
           %tr
             %td
               %label Search category
-              %select{:name=>"SelectCategory", active:false}
+              %select{:name=>"SelectCategory", :active => "false"}
                 %option{:value=>"1"} implemented in second iteration
             %td
             %td
               %label Value
-              %input{:type=>"text","placeholder"=>"Type something...",:name=>"Value",:style=>"width:545px"}
+              %input{:type=>"text",:name=>"Value",:style=>"width:545px", :value=>"implemented in second iteration", :readonly => "readonly"}
             %td
           %tr
           %tr
-            %td{:colspan=>"2"}= submit_tag 'Search'
+            %td{:colspan=>"2", :disabled => "true", :name => "Search"}= submit_tag 'Search'
         %table
         %br
         %table#search_result{:style=>"width: 800px", :border=>"1",:cellpadding=>"0", :cellspacing=>"0"}
@@ -75,7 +75,7 @@
           %tbody
             - @requests.each do |request|
               %tr
-                %td= "1"
+                %td= request.id
                 %td= request.ComputerName
                 %td= request.Subject
                 %td= request.Status

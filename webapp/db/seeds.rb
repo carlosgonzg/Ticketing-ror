@@ -6,4 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+requests=[{:ComputerName => 'meenal tablet', :Subject => 'not working', :urgent => 'true'},
+    	  {:ComputerName => 'micheals computer', :Subject => 'word not working', :urgent => 'false'},
+  	 ]
 
+requests.each do |request|
+  Request.create!(request)
+end

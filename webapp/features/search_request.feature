@@ -17,11 +17,6 @@ Scenario: clicked on the search window tab
   When I click on "Search Request"
   Then I should see the Search Request Form
 
-Scenario: Inputs on the page
-  Given I am on the home page
-  When I click on "Search Request"
-  Then I should see a page with entries: "category", "value", "search"
-
 Scenario: search result in the table
   Given I am on the home page
   When I click on "Search Request"

@@ -16,7 +16,8 @@ class RequestController < ApplicationController
 	request.ComputerName = params[:ComputerName]
 	request.Subject = params[:Subject]
 	request.Description = params[:Description]
-        request.Status = "Open"
+        request.Status = params[:status]
+
 	if(request.save) then
     	  flash[:notice] = "The Request was successfully created."
         else
