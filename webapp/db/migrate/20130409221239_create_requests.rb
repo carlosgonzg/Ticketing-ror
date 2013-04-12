@@ -7,6 +7,7 @@ class CreateRequests < ActiveRecord::Migration
       t.text :Subject
       t.text :Description
       t.text :Solution
+      t.text :Status
 
       t.timestamps
     end

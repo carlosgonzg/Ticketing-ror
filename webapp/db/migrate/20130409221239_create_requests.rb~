@@ -6,8 +6,16 @@ class CreateRequests < ActiveRecord::Migration
       t.text :ComputerName
       t.text :Subject
       t.text :Description
+<<<<<<< HEAD
+      t.text :Solution
+=======
+      t.text :Status
+>>>>>>> d4c6e2022b37809c71d2cdb855bffe5ab2284dbf
 
       t.timestamps
     end
+  end
+  def down
+    drop_table :requests
   end
 end

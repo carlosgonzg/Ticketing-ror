@@ -45,4 +45,41 @@
               %td{:colspan=>"3"}= submit_tag 'Submit'
     %li{:class=>"tab-pane", :id=>"sR"}
       %h1 Search Request
+      %fieldset
+        %table#search_request{:style=>"width: 600px"}
+          %tr
+            %td
+              %label Search category
+              %select{:name=>"SelectCategory", active:false}
+                %option{:value=>"1"} implemented in second iteration
+            %td
+            %td
+              %label Value
+              %input{:type=>"text","placeholder"=>"Type something...",:name=>"Value",:style=>"width:545px"}
+            %td
+          %tr
+          %tr
+            %td{:colspan=>"2"}= submit_tag 'Search'
+        %table
+        %br
+        %table#search_result{:style=>"width: 800px", :border=>"1",:cellpadding=>"0", :cellspacing=>"0"}
+          %thead
+            %tr
+              %th{:width=> "50px"} ID
+              %th{:width=> "150px"} Name
+              %th{:width=> "300px"} Subject
+              %th{:width=> "100px"} Status
+              %th{:width=> "150px"} Date
+              %th{:width=> "50px"} Urgent
+            %tr
+          %tbody
+            - @requests.each do |request|
+              %tr
+                %td= "1"
+                %td= request.ComputerName
+                %td= request.Subject
+                %td= request.Status
+                %td= request.created_at
+                %td= request.urgent
+              %tr
 
