@@ -10,4 +10,7 @@ class CreateRequests < ActiveRecord::Migration
       t.timestamps
     end
   end
+  def down
+    drop_table :requests
+  end
 end

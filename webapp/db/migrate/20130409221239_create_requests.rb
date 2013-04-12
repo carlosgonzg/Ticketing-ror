@@ -6,6 +6,7 @@ class CreateRequests < ActiveRecord::Migration
       t.text :ComputerName
       t.text :Subject
       t.text :Description
+      t.text :Status
 
       t.timestamps
     end

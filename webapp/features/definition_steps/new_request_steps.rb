@@ -1,9 +1,9 @@
 Given /^I am on the home page$/ do
-    pending # express the regexp above with the code you wish you had
+    visit("home page")
 end
 
-When /^I click on: "(.*?)"$/ do |arg1|
-    pending # express the regexp above with the code you wish you had
+When /^I click on: "(.*?)"$/ do |page_name|
+    visit(page_name)
 end
 
 Then /^I should see the New Request form$/ do
