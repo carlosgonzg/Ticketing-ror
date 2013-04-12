@@ -75,7 +75,7 @@
           %tbody
             - @requests.each do |request|
               %tr
-                %td= "1"
+                %td= request.id
                 %td= request.ComputerName
                 %td= request.Subject
                 %td= request.Status
