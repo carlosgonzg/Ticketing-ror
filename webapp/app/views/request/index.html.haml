@@ -75,7 +75,7 @@
           %tbody
             - @requests.each do |request|
               %tr
-                %td= request.id
+                %td= link_to "#{request.id}",update_path(request.id)
                 %td= request.ComputerName
                 %td= request.Subject
                 %td= request.Status
