@@ -1,7 +1,7 @@
 Webapp::Application.routes.draw do
-    resources :update
     resources :request 
-    
+    match "/search/" => "request#search", :via => [:post]
+    match "/mydashboard/" =>"request#dashboard", :via => [:get]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,6 +1,5 @@
-
 %h1 Update Request
-= form_tag update_path(@request), :method => :put do
+= form_tag request_path(@request), :method => :put do
   %fieldset
     %table#update_request{:style=>"width: 600px"}
       %tr
@@ -29,13 +28,13 @@
       %tr
         %td{:colspan=>"3"}
           %label Description
-          %textarea{:rows=>"3",:name=>"Description",:style=>"width:545px", :value => @request.Description}
+          %textarea{:rows=>"3",:name=>"Description",:style=>"width:545px" }= @request.Description
       %tr
         %td{:colspan=>"3"}
           %label Updates
           %ul
-            -@request.updates.each do |update|
-              %li = update.Text
+            -@request.updates.sort.each do |update|
+              %li= update.Date.to_s + " - " + update.UpdateText.to_s
       %tr
         %td
           %label Update

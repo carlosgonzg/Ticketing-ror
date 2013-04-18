@@ -28,11 +28,24 @@ class RequestController < ApplicationController
     end
 
     def edit
+      id = params[:id]
+      @request = Request.find(id)
+      @updates = @request.updates
     end
 
     def update
+      new_update = params[:UpdateText]
+      @request = Request.find(params[:id])
+      @request.updates.create(:UpdateText=>new_update, :Date=>DateTime.now.to_s)
+      redirect_to request_index_path
+    end
+
+    def search
     end
 
     def destroy
+    end
+
+    def dashboard
     end
 end
