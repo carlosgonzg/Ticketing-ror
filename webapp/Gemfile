@@ -29,7 +29,8 @@ group :test,:development do
    gem 'sqlite3', :require=>'sqlite3'
 end
 gem "haml"
-gem 'bootstrap-sass'
+gem 'less-rails-bootstrap'
+gem 'therubyracer'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 group :production do
