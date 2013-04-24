@@ -9,19 +9,23 @@ class RequestController < ApplicationController
 
  #New Request method
     def create
-    	request = Request.new
-	request.urgent = params[:urgent]
-	request.IssueType = params[:IssueType]
-	request.ComputerName = params[:ComputerName]
-	request.Subject = params[:Subject]
-	request.Description = params[:Description]
-        request.Status = "Open"
-
-	if(request.save) then
-    	  flash[:notice] = "The Request was successfully created."
-        else
-          flash[:error] = "There was an error saving the new request"
-        end
+    if(params[:Subject].blank? || params[:Description].blank?) then
+		flash[:error] = "Information not completed. Please complete the information"
+	else
+		request = Request.new
+		request.urgent = params[:urgent]
+		request.IssueType = params[:IssueType]
+		request.ComputerName = params[:ComputerName]
+		request.Subject = params[:Subject]
+		request.Description = params[:Description]
+		request.Status = "Open"
+	
+		if(request.save) then
+			  flash[:notice] = "The Request was successfully created."
+		    else
+		      flash[:error] = "There was an error saving the new request"
+		    end
+	end
 	redirect_to request_index_path
     end
   

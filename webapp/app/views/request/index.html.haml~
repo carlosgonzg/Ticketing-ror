@@ -1,7 +1,7 @@
 %div{:class=> "tabbable tabs-left container", :style=>"width:960px;margin: 0 auto;"}
   %ul{:class=>"nav nav-tabs"}
     %li
-      =link_to "My Dashboard", dashboard_request_index
+      =link_to "My Dashboard", dashboard_request_index_path
     %li{:class=>"active"}
       =link_to "New Request", new_request_path
     %li
@@ -9,37 +9,4 @@
   %div{:class=>"tab-content"}
     %li{:class=>"tab-pane", :id=>"mD"}
     %li{:class=>"tab-pane active", :id=>"nR"}
-      %h1 New Request
-      = form_tag request_index_path do
-        %fieldset
-          %table#new_request{:style=>"width: 600px" }
-            %tr
-              %td
-                %label{:class=>"checkbox"}
-                  %input{:type=>"checkbox",:name=>"urgent"}Urgent 
-              %td
-                %label Issue Type
-                %select{:name=>"IssueType"}
-                  %option{:value=>"1"} Hardware
-                  %option{:value=>"2"} Software
-                  %option{:value=>"3"} Network
-                  %option{:value=>"4"} Login
-                  %option{:value=>"5"} Peripheral
-              %td
-                %label Computer Name
-                %select{:name=>"ComputerName",:align=>"right"}
-                  %option{:value=>"MC"} Michael Carter's Laptop
-                  %option{:value=>"CG"} Carlos Gonzalez's Desktop
-                  %option{:value=>"MK"} Meenal's Tablet
-                  %option{:value=>"HS"} Harpreet Singh's Workbench
-            %tr
-              %td{:colspan=>"3"}
-                %label Subject
-                %input{:type=>"text","placeholder"=>"Type something...",:name=>"Subject",:style=>"width:545px"}
-            %tr
-              %td{:colspan=>"3"}
-                %label Description
-                %textarea{:rows=>"3",:name=>"Description",:style=>"width:545px"}
-            %tr
-              %td{:colspan=>"3"}= submit_tag 'Submit'
     %li{:class=>"tab-pane", :id=>"sR"}
