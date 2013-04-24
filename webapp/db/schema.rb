@@ -33,7 +33,4 @@ ActiveRecord::Schema.define(:version => 20130411200342) do
     t.datetime "updated_at", :null => false
   end
 
-# Could not dump table "users" because of following StandardError
-#   Unknown type 'UserType' for column 'name'
-
 end

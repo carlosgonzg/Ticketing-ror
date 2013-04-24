@@ -1,0 +1,14 @@
+%div{:class=> "tabbable tabs-left container", :style=>"width:960px;margin: 0 auto;"}
+  %ul{:class=>"nav nav-tabs"}
+    %li{:class=>"active"}
+      =link_to "My Dashboard", dashboard_request_index
+    %li
+      =link_to "New Request", new_request_path
+    %li
+      =link_to "Search Request", search_request_index_path
+  %div{:class=>"tab-content"}
+    %li{:class=>"tab-pane active", :id=>"mD"}
+      %h1 My Dashboard
+    %li{:class=>"tab-pane", :id=>"nR"}
+    %li{:class=>"tab-pane active", :id=>"sR"}
+

@@ -4,6 +4,7 @@ class RequestController < ApplicationController
     end
 
     def show
+		@requests = Request.find(:all)
     end
 
  #New Request method
@@ -41,6 +42,7 @@ class RequestController < ApplicationController
     end
 
     def search
+       @requests = Request.find(:all)
     end
 
     def destroy
