@@ -1,12 +1,18 @@
-%div{:class=> "tabbable tabs-left container", :style=>"width:960px;margin: 0 auto;"}
-  %ul{:class=>"nav nav-tabs"}
-    %li
-      =link_to "My Dashboard", dashboard_request_index_path
-    %li{:class=>"active"}
-      =link_to "New Request", new_request_path
-    %li
-      =link_to "Search Request", search_request_index_path
-  %div{:class=>"tab-content"}
-    %li{:class=>"tab-pane", :id=>"mD"}
-    %li{:class=>"tab-pane active", :id=>"nR"}
-    %li{:class=>"tab-pane", :id=>"sR"}
+- if flash[:alert]
+  #notice
+    = flash[:alert]
+
+
+%h1 Login
+
+= form_tag do
+  %fieldset
+    %legend Log-In:
+    %div
+      %label Username:
+      =text_field_tag :Username, params[:Username]
+    %div
+      %label Password:
+      =password_field_tag :password, params[:password]
+    %div
+      = submit_tag "Submit"
