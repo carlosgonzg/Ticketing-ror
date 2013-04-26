@@ -1,24 +1,23 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/michaelcarter/Documents/Projectrepo/selt_team6/webapp/app/controllers/application_controller.rb": [
+      "/home/ubuntu/selt_team6/webapp/app/controllers/application_controller.rb": [
         1,
         1,
         null
       ],
-      "/Users/michaelcarter/Documents/Projectrepo/selt_team6/webapp/app/helpers/application_helper.rb": [
+      "/home/ubuntu/selt_team6/webapp/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/michaelcarter/Documents/Projectrepo/selt_team6/webapp/app/helpers/request_helper.rb": [
+      "/home/ubuntu/selt_team6/webapp/app/helpers/request_helper.rb": [
         1,
         null
       ],
-      "/Users/michaelcarter/Documents/Projectrepo/selt_team6/webapp/app/helpers/update_helper.rb": [
+      "/home/ubuntu/selt_team6/webapp/app/helpers/update_helper.rb": [
         1,
         null
       ],
-<<<<<<< HEAD
       "/home/ubuntu/selt_team6/webapp/app/controllers/login_page_controller.rb": [
         null,
         1,
@@ -44,36 +43,11 @@
         null
       ],
       "/home/ubuntu/selt_team6/webapp/app/controllers/request_controller.rb": [
-=======
-      "/Users/michaelcarter/Documents/Projectrepo/selt_team6/webapp/app/controllers/login_page_controller.rb": [
-        null,
->>>>>>> f303865ab186133ad77d55d8adb41260afe0ef9b
         1,
         null,
         1,
-        null,
-        null,
-        null,
         1,
         0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        null
-      ],
-      "/Users/michaelcarter/Documents/Projectrepo/selt_team6/webapp/app/controllers/request_controller.rb": [
-        1,
-        1,
-        4,
         null,
         null,
         1,
@@ -121,7 +95,26 @@
         null,
         null,
         1,
-        6,
+        9,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        9,
+        null,
+        null,
         null,
         null,
         1,
@@ -131,29 +124,25 @@
         null,
         null
       ],
-      "/Users/michaelcarter/Documents/Projectrepo/selt_team6/webapp/app/models/request.rb": [
+      "/home/ubuntu/selt_team6/webapp/app/models/request.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/michaelcarter/Documents/Projectrepo/selt_team6/webapp/app/controllers/update_controller.rb.rb~.rb": [
+      "/home/ubuntu/selt_team6/webapp/app/controllers/update_controller.rb.rb~.rb": [
         1,
         1,
         null,
         null
       ],
-      "/Users/michaelcarter/Documents/Projectrepo/selt_team6/webapp/app/models/update.rb": [
+      "/home/ubuntu/selt_team6/webapp/app/models/update.rb": [
         1,
         1,
         1,
         null
       ]
     },
-<<<<<<< HEAD
-    "timestamp": 1366929827
-=======
-    "timestamp": 1366942743
->>>>>>> f303865ab186133ad77d55d8adb41260afe0ef9b
+    "timestamp": 1366993114
   }
 }
