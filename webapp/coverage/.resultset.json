@@ -18,6 +18,30 @@
         1,
         null
       ],
+      "/home/ubuntu/selt_team6/webapp/app/controllers/login_page_controller.rb": [
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
       "/home/ubuntu/selt_team6/webapp/app/controllers/request_controller.rb": [
         1,
         1,
@@ -90,6 +114,6 @@
         null
       ]
     },
-    "timestamp": 1366928147
+    "timestamp": 1366929827
   }
 }

@@ -5,7 +5,7 @@ Given /the following request have been added to Request:/ do |request_table|
   end
 end
 Given /^I am on the home page$/ do
-    visit 'http://0.0.0.0:3000/request'
+    visit 'http://0.0.0.0:3000/request/'
 end
 
 When /^I click on "(.*?)"$/ do |page_name|

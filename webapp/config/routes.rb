@@ -2,6 +2,7 @@ Webapp::Application.routes.draw do
 	resources :request do
 		collection do
 			get :search
+			post :search
 			get :dashboard
 		end
 	end

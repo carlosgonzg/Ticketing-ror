@@ -1,10 +1,12 @@
+require 'date'   
+
 class RequestController < ApplicationController
     def index
         @requests = Request.find(:all)
     end
 
     def show
-		@requests = Request.find(:all)
+	@requests = Request.find(:all)  
     end
 
  #New Request method
@@ -46,8 +48,27 @@ class RequestController < ApplicationController
     end
 
     def search
-       @requests = Request.find(:all)
+	if(!params[:val].blank?)		
+		if(params[:SelectCategory] == "1")			
+			@result = Request.find(params[:val])
+		elsif(params[:SelectCategory] == "2")
+			@result = Request.find_all_by_ComputerName(params[:val])
+		elsif(params[:SelectCategory] == "3")
+			@result = Request.find_all_by_Status(params[:val])
+		elsif(params[:SelectCategory] == "4")
+			@result = Request.find(:all)
+		end
+		
+		if(@result.kind_of?(Array))
+			@requests = @result 
+		else
+			@requests = Array.new(1, @result)
+		end
+	else	
+		@requests = Request.find(:all)  	    
+    	end
     end
+    
 
     def destroy
     end
