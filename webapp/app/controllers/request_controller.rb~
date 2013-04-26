@@ -44,6 +44,8 @@ class RequestController < ApplicationController
       new_update = params[:UpdateText]
       @request = Request.find(params[:id])
       @request.updates.create(:UpdateText=>new_update, :Date=>DateTime.now.to_s)
+         
+          
       redirect_to request_index_path
     end
 
@@ -55,6 +57,8 @@ class RequestController < ApplicationController
 			@result = Request.find_all_by_ComputerName(params[:val])
 		elsif(params[:SelectCategory] == "3")
 			@result = Request.find_all_by_Status(params[:val])
+		elsif(params[:SelectCategory] == "4")
+			@result = Request.find(:all)
 		end
 		
 		if(@result.kind_of?(Array))
