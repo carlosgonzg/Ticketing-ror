@@ -1,0 +1,12 @@
+= form_tag user_index_path,:class=>"form-horizontal",:style=>"margin:0 auto" do
+  %div{:class=>"control-group"}
+    %label{:class=>"control-label",:for=>"Username"}Username:
+    %div{:class=>"controls"}
+      %input{:type=>"text",:id=>"Username",:name=>"Username",:placeholder=>"Username",:style=>"height:30px"}
+  %div{:class=>"control-group"}
+    %label{:class=>"control-label",:for=>"Password"}Password:
+    %div{:class=>"controls"}
+      %input{:type=>"password",:id=>"Password",:name=>"Password",:placeholder=>"Password",:style=>"height:30px"}
+  %div{:class=>"control-group"}
+    %div{:class=>"controls"}
+      = submit_tag "Sign In",:class=>"btn-inverse"

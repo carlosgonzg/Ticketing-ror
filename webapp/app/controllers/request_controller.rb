@@ -2,7 +2,7 @@ require 'date'
 
 class RequestController < ApplicationController
     def index
-        @requests = Request.find(:all)
+        redirect_to dashboard_request_index_path
     end
 
     def show
@@ -24,11 +24,12 @@ class RequestController < ApplicationController
 	
 		if(request.save) then
 			  flash[:notice] = "The Request was successfully created."
+              UserMailer.new_request(session[:User][0],request).deliver
 		    else
 		      flash[:error] = "There was an error saving the new request"
 		    end
 	end
-	redirect_to request_index_path
+	redirect_to new_request_path
     end
   
     def new

@@ -18,6 +18,3 @@ requests.each do |request|
   Request.create!(request)
 end
 User.create!(user1)
-User.create!(user2)
-User.create!(user3)
-User.create!(user4)
