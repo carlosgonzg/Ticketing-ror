@@ -42,9 +42,7 @@ class RequestController < ApplicationController
       new_update = params[:UpdateText]
       @request = Request.find(params[:id])
       @request.updates.create(:UpdateText=>new_update, :Date=>DateTime.now.to_s)
-         
-          
-      redirect_to request_index_path
+      redirect_to search_request_index_path
     end
 
     def search

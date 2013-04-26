@@ -30,7 +30,7 @@
           %label Description
           %textarea{:rows=>"3",:name=>"Description",:style=>"width:545px" }= @request.Description
       %tr
-        %td{:colspan=>"3"}
+        %td{:id =>"updates",:colspan=>"3"}
           %label Updates
           %ul
             -@request.updates.sort.each do |update|
