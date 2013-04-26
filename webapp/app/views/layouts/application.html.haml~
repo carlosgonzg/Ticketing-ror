@@ -1,4 +1,3 @@
-!!! 5
 %html
   %head
     %title My App
@@ -6,13 +5,23 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
 
-  %body
+  %body{"data-spy"=>"scroll","data-target"=>".bs-docs-sidebar","data-twttr-rendered"=>"true"}
     #main
-      %div{:style=>"width:600px;margin:0 auto;"}
+      - if !session[:User].blank?
+        %div{:class=>"navbar navbar-inverse navbar-fixed-top"}
+          %div{:class=>"navbar-inner"}
+            %div{:class=>"container"}
+              %div{:class=>"nav pull-right"}
+                %ul{:class=>"nav nav-pills"}
+                  %li
+                    %a{:href=>"#"}= session[:User][0].Username  
+                  %li 
+                    =link_to "Sign out", new_request_path
+      %div{:style=>"width:960px;margin:0 auto;margin-top:43px"}
         - if flash[:notice]
           %span#notice.message{:class=>"label label-success"}= flash[:notice]
         - elsif flash[:warning]
           %span#warning.message{:class=>"label label-warning"}= flash[:warning]
         - elsif flash[:error]
           %span#warning.message{:class=>"label label-important"}= flash[:error]
-      = yield
+        = yield
