@@ -16,5 +16,6 @@ When /^I select search category as "(.*?)" and put the value as "(.*?)"$/ do |ca
 end
 
 Then /^I should only see request with "(.*?)" as "(.*?)"$/ do |category, value|
-  page.should have_xpath('//table/tr')
+  assert page.has_xpath?("/table/tr/td[(count(../../tr/th[.= '#{category}']/preceding-sibling::*)+1)]
+                               [.= '#{value}']")
 end

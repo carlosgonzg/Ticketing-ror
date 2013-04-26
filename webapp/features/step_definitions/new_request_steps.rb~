@@ -8,7 +8,7 @@ Given /^I am on the home page$/ do
     visit 'http://0.0.0.0:3000/request/new'
 end
 
-When /^I click on link "(.*?)"$/ do |page_name|
+When /^I click on "(.*?)"$/ do |page_name|
   click_on page_name
 end
 
