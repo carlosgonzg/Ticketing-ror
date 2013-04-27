@@ -1,11 +1,11 @@
 %div{:class=> "tabbable tabs-left container"}
-  %ul{:class=>"nav nav-tabs"}
-    %li
+  %ul{:class=>"nav nav-tabs", :id => "list"}
+    %li 
       =link_to "My Dashboard", dashboard_request_index_path
     %li{:class=>"active"}
       =link_to "New Request", new_request_path
-    %li
-      =link_to "Search Request", search_request_index_path
+    %li 
+      = link_to "Search Request", search_request_index_path
   %div{:class=>"tab-content"}
     %li{:class=>"tab-pane", :id=>"mD"}
     %li{:class=>"tab-pane active", :id=>"nR"}

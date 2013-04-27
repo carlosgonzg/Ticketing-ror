@@ -1,11 +1,11 @@
-%div{:class=> "tabbable tabs-left container", :style=>"width:960px;margin: 0 auto;"}
+%div{:class=> "tabbable tabs-left container"}
   %ul{:class=>"nav nav-tabs"}
     %li
       =link_to "My Dashboard", dashboard_request_index_path
     %li
       =link_to "New Request", new_request_path
     %li{:class=>"active"}
-      =link_to "Search Request", search_request_index_path
+      =link_to "Search ", search_request_index_path
   %div{:class=>"tab-content"}
     %li{:class=>"tab-pane", :id=>"mD"}
     %li{:class=>"tab-pane", :id=>"nR"}
@@ -25,7 +25,7 @@
               %td
               %td
                 %label Value
-                %input{:type=>"text",:name=>"val",:style=>"width:545px", :value=>""}
+                %input{:type=>"text",:name=>"val",:style=>"width:545px; height:30px", :value=>""}
               %td
             %tr
             %tr

@@ -1,3 +1,14 @@
+
+Given /^I am on the user page$/ do
+  visit 'http://0.0.0.0:3000/request/new'
+end
+
+When /^I click on Search Request$/ do
+  within("li[@id='list']") do
+    click_link('Search Request')
+  end
+end
+
 Then /^I should see the Search Request Form$/ do
   if page.respond_to? :should
     assert page.should have_content('Search category')

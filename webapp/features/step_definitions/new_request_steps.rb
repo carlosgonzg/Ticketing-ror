@@ -4,12 +4,9 @@ Given /the following request have been added to Request:/ do |request_table|
     Request.create!(request)
   end
 end
-Given /^I am on the home page$/ do
-    visit 'http://0.0.0.0:3000/request/new'
-end
 
 When /^I click on "(.*?)"$/ do |page_name|
-  click_on page_name
+  pending # express the regexp above with the code you wish you had
 end
 
 Then /^I should see the New Request form$/ do

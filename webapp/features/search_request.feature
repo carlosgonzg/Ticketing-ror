@@ -13,12 +13,12 @@ Given the following request have been added to Request:
   | When	| be      | yes    |
 
 Scenario: clicked on the search window tab
-  Given I am on the home page
-  When I click on "Search Request"
+  Given I am on the user page
+  When I click on Search Request
   Then I should see the Search Request Form
 
 Scenario: search result in the table
-  Given I am on the home page
+  Given I am on the user page
   When I click on "Search Request"
   Then By default I should see all the request
 
