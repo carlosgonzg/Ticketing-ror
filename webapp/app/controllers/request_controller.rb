@@ -64,6 +64,8 @@ class RequestController < ApplicationController
 		
 		if(@result.kind_of?(Array))
 			@requests = @result 
+		elsif(@result.nil?)
+		      flash[:error] = "No record present. Check the search value and try again"
 		else
 			@requests = Array.new(1, @result)
 		end

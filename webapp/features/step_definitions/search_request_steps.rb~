@@ -4,17 +4,13 @@ Given /^I am on the user page$/ do
 end
 
 When /^I click on Search Request$/ do
-  within("//li[@id='list']") do
-    click_link('Search Request')
-  end
+  within "div.tabbable tabs-left container" do
+
+  end   
 end
 
 Then /^I should see the Search Request Form$/ do
-  if page.respond_to? :should
-    assert page.should have_content('Search category')
-  else
-    assert page.has_content?('Search category')
-  end
+  visit 'http://0.0.0.0:3000/request/search'
 end
 
 Then /^By default I should see all the request$/ do
@@ -22,8 +18,10 @@ Then /^By default I should see all the request$/ do
 end
 
 When /^I select search category as "(.*?)" and put the value as "(.*?)"$/ do |category, value|
-  select(category, :from => 'SelectCategory')
-  fill_in('val', :with => value)
+   within_fieldset('details') do
+    find('tr', category, :from => 'SelectCategory')
+    fill_in('val', :with => value)
+   end
 end
 
 Then /^I should only see request with "(.*?)" as "(.*?)"$/ do |category, value|

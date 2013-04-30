@@ -5,7 +5,7 @@
     %li
       =link_to "New Request", new_request_path
     %li{:class=>"active"}
-      =link_to "Search ", search_request_index_path
+      =link_to "Search Request", search_request_index_path
   %div{:class=>"tab-content"}
     %li{:class=>"tab-pane", :id=>"mD"}
     %li{:class=>"tab-pane", :id=>"nR"}

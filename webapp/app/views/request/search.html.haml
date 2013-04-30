@@ -12,7 +12,7 @@
     %li{:class=>"tab-pane active", :id=>"sR"}
       %h1 Search Request
       = form_tag search_request_index_path do
-        %fieldset
+        %fieldset {:id => "details"}
           %table#search_request{:style=>"width: 600px"}
             %tr
               %td
