@@ -12,7 +12,14 @@ Given the following request have been added to Request:
   | The         | no      | no     |
   | When	| be      | yes    |
 
-Scenario: clicked on the search window tab
+And the following users have been added to User:
+  | UserType | Fullname 	| Username   | password_digest | email                          |
+  | 0        | Michael Carter   | mlcarter   | mlcarter        | mlcarter815@gmail.com          |
+  | 0	     | Meenal Khandelwal| mkhandelwal| mkhandelwal     | meenal.khandelwal616@gmail.com |
+
+And loggingin into the system
+
+Scenario: clicked on the search window tab 
   Given I am on the user page
   When I click on Search Request
   Then I should see the Search Request Form

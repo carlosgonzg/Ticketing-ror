@@ -1,12 +1,17 @@
+And /^loggingin into the system$/ do
+ visit 'http://0.0.0.0:3000/user/login'
+ fill_in('Username', :with => 'mkhandelwal')
+ fill_in('Password', :with => 'mkhandelwal')
+ click_button('Sign In')
+ visit 'http://0.0.0.0:3000/request/new'
+end
 
 Given /^I am on the user page$/ do
-  visit 'http://0.0.0.0:3000/request/new'
+ visit 'http://0.0.0.0:3000/request/new'
 end
 
 When /^I click on Search Request$/ do
-  within "nav nav-tabs" do
-
-  end   
+  click_link('Search Request') 
 end
 
 Then /^I should see the Search Request Form$/ do
