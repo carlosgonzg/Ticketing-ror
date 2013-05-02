@@ -1,4 +1,4 @@
-%div{:class=> "tabbable tabs-left container", :style=>"width:960px;margin: 0 auto;"}
+%div{:class=> "tabbable tabs-left container"}
   %ul{:class=>"nav nav-tabs"}
     %li
       =link_to "My Dashboard", dashboard_request_index_path
@@ -11,43 +11,47 @@
     %li{:class=>"tab-pane", :id=>"nR"}
     %li{:class=>"tab-pane active", :id=>"sR"}
       %h1 Search Request
-      %fieldset
-        %table#search_request{:style=>"width: 600px"}
-          %tr
-            %td
-              %label Search category
-              %select{:name=>"SelectCategory", :active => "false"}
-                %option{:value=>"1"} implemented in second iteration
-            %td
-            %td
-              %label Value
-              %input{:type=>"text",:name=>"Value",:style=>"width:545px", :value=>"implemented in second iteration", :readonly => "readonly"}
-            %td
-          %tr
-          %tr
-            %td{:colspan=>"2", :disabled => "disabled", :name => "Search"}= submit_tag 'Search'
-        %table
-        %br
-        %table#search_result{:class=>"table table-striped table-bordered table-hover table-condensed"}
-          %thead
+      = form_tag search_request_index_path do
+        %fieldset{:id => "details"}
+          %table#search_request{:style=>"width: 600px"}
             %tr
-              %th ID
-              %th Name
-              %th Subject
-              %th Status
-              %th Date
-              %th Urgent
+              %td
+                %label Search category
+                %select{:name=>"SelectCategory", :active => "false"}
+                  %option{:value=>"1"} Request id
+                  %option{:value=>"2"} Computer Name
+                  %option{:value=>"3"} Status
+                  %option{:value=>"3"} All
+              %td
+              %td
+                %label Value
+                %input{:type=>"text",:name=>"val",:style=>"width:545px; height:30px", :value=>""}
+              %td
             %tr
-          %tbody
-            - @requests.each do |request|
+            %tr
+              %td{:colspan=>"2", :disabled => "disabled", :name => "Search"}= submit_tag 'Search',:class => "btn-inverse"
+          %table
+          %br
+          %table#search_result{:class=>"table table-striped table-bordered table-hover table-condensed"}
+            %thead
               %tr
-                %td= link_to "#{request.id}",edit_request_path(request.id)
-                %td= request.ComputerName
-                %td= request.Subject
-                %td= request.Status
-                %td= request.created_at
-                %td
-                  - if (!request.urgent.to_s.empty?) then
-                    %i{:class=>"icon-ok"}
+                %th ID
+                %th Name
+                %th Subject
+                %th Status
+                %th Date
+                %th Urgent
               %tr
+            %tbody
+              - @requests.each do |request|
+                %tr
+                  %td= link_to "#{request.id}",edit_request_path(request.id)
+                  %td= request.ComputerName
+                  %td= request.Subject
+                  %td= request.Status
+                  %td= request.created_at
+                  %td
+                    - if (!request.urgent.to_s.empty?) then
+                      %i{:class=>"icon-ok"}
+                %tr
 

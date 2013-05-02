@@ -1,11 +1,11 @@
-%div{:class=> "tabbable tabs-left container", :style=>"width:960px;margin: 0 auto;"}
-  %ul{:class=>"nav nav-tabs"}
-    %li
+%div{:class=> "tabbable tabs-left container"}
+  %ul{:class=>"nav nav-tabs", :id => "list"}
+    %li 
       =link_to "My Dashboard", dashboard_request_index_path
     %li{:class=>"active"}
       =link_to "New Request", new_request_path
-    %li
-      =link_to "Search Request", search_request_index_path
+    %li 
+      = link_to "Search Request", search_request_index_path
   %div{:class=>"tab-content"}
     %li{:class=>"tab-pane", :id=>"mD"}
     %li{:class=>"tab-pane active", :id=>"nR"}
@@ -35,11 +35,11 @@
             %tr
               %td{:colspan=>"3"}
                 %label Subject
-                %input{:type=>"text","placeholder"=>"Type something...",:name=>"Subject",:style=>"width:545px"}
+                %input{:type=>"text","placeholder"=>"Type something...",:name=>"Subject",:style=>"width:545px;height:30px"}
             %tr
               %td{:colspan=>"3"}
                 %label Description
                 %textarea{:rows=>"3",:name=>"Description",:style=>"width:545px"}
             %tr
-              %td{:colspan=>"3"}= submit_tag 'Submit',"id"=>"new_request"
+              %td{:colspan=>"3"}= submit_tag 'Submit',"id"=>"insert_new_request",:class=>"btn btn-inverse"
     %li{:class=>"tab-pane", :id=>"sR"}

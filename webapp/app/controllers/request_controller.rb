@@ -1,10 +1,12 @@
+require 'date'   
+
 class RequestController < ApplicationController
     def index
-        @requests = Request.find(:all)
+        redirect_to dashboard_request_index_path
     end
 
     def show
-		@requests = Request.find(:all)
+	@requests = Request.find(:all)  
     end
 
  #New Request method
@@ -22,11 +24,12 @@ class RequestController < ApplicationController
 	
 		if(request.save) then
 			  flash[:notice] = "The Request was successfully created."
+              UserMailer.new_request(session[:User][0],request).deliver
 		    else
 		      flash[:error] = "There was an error saving the new request"
 		    end
 	end
-	redirect_to request_index_path
+	redirect_to new_request_path
     end
   
     def new
@@ -42,12 +45,35 @@ class RequestController < ApplicationController
       new_update = params[:UpdateText]
       @request = Request.find(params[:id])
       @request.updates.create(:UpdateText=>new_update, :Date=>DateTime.now.to_s)
-      redirect_to search_request_index_path
+         
+          
+      redirect_to request_index_path
     end
 
     def search
-       @requests = Request.find(:all)
+	if(!params[:val].blank?)		
+		if(params[:SelectCategory] == "1")			
+			@result = Request.find(params[:val])
+		elsif(params[:SelectCategory] == "2")
+			@result = Request.find_all_by_ComputerName(params[:val])
+		elsif(params[:SelectCategory] == "3")
+			@result = Request.find_all_by_Status(params[:val])
+		elsif(params[:SelectCategory] == "4")
+			@result = Request.find(:all)
+		end
+		
+		if(@result.kind_of?(Array))
+			@requests = @result 
+		elsif(@result.nil?)
+		      flash[:error] = "No record present. Check the search value and try again"
+		else
+			@requests = Array.new(1, @result)
+		end
+	else	
+		@requests = Request.find(:all)  	    
+    	end
     end
+    
 
     def destroy
     end
