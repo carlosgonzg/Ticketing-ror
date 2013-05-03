@@ -34,5 +34,8 @@ class UserController < ApplicationController
             end
         end
 	end
-    
+    def logout
+        session.delete :User
+        redirect_to login_user_index_path
+    end
 end
