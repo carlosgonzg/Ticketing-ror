@@ -12,14 +12,14 @@
     %li{:class=>"tab-pane active", :id=>"sR"}
       %h1 Search Request
       = form_tag search_request_index_path do
-        %fieldset {:id => "details"}
+        %fieldset{:id => "details"}
           %table#search_request{:style=>"width: 600px"}
             %tr
               %td
                 %label Search category
                 %select{:name=>"SelectCategory", :active => "false"}
                   %option{:value=>"1"} Request id
-                  %option{:value=>"2"} Computer Name
+                  %option{:value=>"2"} User Name
                   %option{:value=>"3"} Status
                   %option{:value=>"3"} All
               %td
@@ -46,7 +46,7 @@
               - @requests.each do |request|
                 %tr
                   %td= link_to "#{request.id}",edit_request_path(request.id)
-                  %td= request.ComputerName
+                  %td= request.userName
                   %td= request.Subject
                   %td= request.Status
                   %td= request.created_at

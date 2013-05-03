@@ -6,7 +6,7 @@ And /^loggingin into the system$/ do
  visit 'http://0.0.0.0:3000/request/new'
 end
 
-Given /^I am on the user page$/
+Given /^I am on the user page$/ do
  visit 'http://0.0.0.0:3000/request/new'
 end
 
@@ -24,12 +24,62 @@ end
 
 When /^I select search category as "(.*?)" and put the value as "(.*?)"$/ do |category, value|
    within_fieldset('details') do
-    find('tr', category, :from => 'SelectCategory')
-    fill_in('val', :with => value)
+    select(category, :from => 'SelectCategory')
+    fill_in('val', :with => value.to_i)
    end
+   click_button('Search')
 end
 
 Then /^I should only see request with "(.*?)" as "(.*?)"$/ do |category, value|
-  assert page.has_xpath?("/table/tr/td[(count(../../tr/th[.= '#{category}']/preceding-sibling::*)+1)]
-                               [.= '#{value}']")
+  result = false
+  puts page.body
+  all("tr").each do |tr|
+    if tr.has_content?(value)
+      result = true
+      break
+    end
+  end
+  assert result  
+end
+
+But /^I should not see request with "(.*?)" as "(.*?)"$/ do |category, value|
+  r = Request.find(value.to_i)
+  if page.respond_to? :should
+      page.should have_no_css('table#search_result tr.r')
+  else
+      assert page.has_no_css?('table#search_result tr.r')
+  end  
+end
+
+When /^I select search category as all$/ do
+  within_fieldset('details') do
+    select("All", :from => 'SelectCategory')
+   end
+   click_button('Search')
+end
+
+Then /^I should see all the request$/ do
+  assert page.has_css?("table tbody tr", all("table#Request tr").count)
+end
+
+But /^I should not see request with status as "(.*?)"$/ do |value|
+  r = Request.find_all_by_Status(value)
+  if page.respond_to? :should
+      page.should have_no_css('table#search_result tr.r')
+  else
+      assert page.has_no_css?('table#search_result tr.r')
+  end  
+end
+
+But /^I should not see request with username as "(.*?)"$/ do |value|
+  r = Request.find(:all, :conditions => ["userName LIKE ?", %(%#{value}%)])
+  if page.respond_to? :should
+      page.should have_no_css('table#search_result tr.r')
+  else
+      assert page.has_no_css?('table#search_result tr.r')
+  end  
+end
+
+And /^I should also see a flash notice saying request not found$/ do 
+  assert "No record present. Check the search value and try again"
 end
