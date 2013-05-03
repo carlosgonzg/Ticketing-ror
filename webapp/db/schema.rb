@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130503054154) do
-=======
-ActiveRecord::Schema.define(:version => 20130425231259) do
->>>>>>> 67d0495f3286969f6a204f6342c3ca095a675cec
 
   create_table "requests", :force => true do |t|
     t.boolean  "urgent"
