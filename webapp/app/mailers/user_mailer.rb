@@ -3,6 +3,11 @@ class UserMailer < ActionMailer::Base
   def new_request(user, request)
     @user = user
     @request = request
-	mail(:to=>user.email,:subject=> "#{request.Subject}")
+      email_array = [user[:email]]
+      users_admin = User.find(:all,:conditions=>"UserType = 0")
+      users_admin.each do |user_admin|
+          email_array << user_admin.email
+      end
+	mail(:to=>email_array,:subject=> "#{request.Subject}")
   end
 end

@@ -24,7 +24,7 @@ class RequestController < ApplicationController
 	
 		if(request.save) then
 			  flash[:notice] = "The Request was successfully created."
-              UserMailer.new_request(session[:User][0],request).deliver
+              UserMailer.new_request(session[:User],request).deliver
 		    else
 		      flash[:error] = "There was an error saving the new request"
 		    end

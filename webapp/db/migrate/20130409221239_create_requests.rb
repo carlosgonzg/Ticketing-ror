@@ -8,7 +8,8 @@ class CreateRequests < ActiveRecord::Migration
       t.text :Description
       t.text :Solution
       t.text :Status
-
+      t.text :email
+      t.text :userName
       t.timestamps
     end
   end
