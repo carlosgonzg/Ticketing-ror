@@ -54,7 +54,6 @@ class RequestController < ApplicationController
     def search
 	if(!params[:val].blank?)		
 		if(params[:SelectCategory] == "1")			
-<<<<<<< HEAD
 			if((params[:val].to_i))			
 				@result = Request.find_by_id(params[:val].to_i)
 			else
@@ -63,18 +62,14 @@ class RequestController < ApplicationController
 			end
 		elsif(params[:SelectCategory] == "2")
 			@result = Request.find(:all, :conditions => ["userName LIKE ?", %(%#{params[:val]}%)])
-=======
 			@result = Request.find(params[:val])
 		elsif(params[:SelectCategory] == "2")
 			@result = Request.find_all_by_ComputerName(params[:val])
->>>>>>> 67d0495f3286969f6a204f6342c3ca095a675cec
 		elsif(params[:SelectCategory] == "3")
 			@result = Request.find_all_by_Status(params[:val])
 		elsif(params[:SelectCategory] == "4")
 			@result = Request.find(:all)
 		end
-		
-<<<<<<< HEAD
 		if(@result.nil?)
 		      flash[:error] = "No record present. Check the search value and try again"
 		      @requests = Request.find(:all) 
@@ -85,12 +80,10 @@ class RequestController < ApplicationController
 			else
 				@requests = @result
 			end
-=======
 		if(@result.kind_of?(Array))
 			@requests = @result 
 		elsif(@result.nil?)
 		      flash[:error] = "No record present. Check the search value and try again"
->>>>>>> 67d0495f3286969f6a204f6342c3ca095a675cec
 		else
 			@requests = Array.new(1, @result)
 		end
