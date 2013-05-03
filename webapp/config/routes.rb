@@ -2,6 +2,7 @@ Webapp::Application.routes.draw do
 	resources :request do
 		collection do
 			get :search
+<<<<<<< HEAD
 			post :search
 			get :dashboard
 		end
@@ -12,6 +13,19 @@ Webapp::Application.routes.draw do
             get :logout
 		end
 	end
+=======
+            post :search
+			get :dashboard
+		end
+	end
+    resources :user do
+        collection do
+            get :login
+            get :logout
+            post :logout
+        end
+    end
+>>>>>>> 67d0495f3286969f6a204f6342c3ca095a675cec
     #match "request/search/" => "request#search", :via=>:get
     #match "mydashboard/" =>"request#dashboard", :via=>:get
   # The priority is based upon order of creation:

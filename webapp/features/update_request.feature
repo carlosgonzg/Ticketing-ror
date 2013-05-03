@@ -23,8 +23,8 @@ Scenario: select the request to be updated
   
 Scenario: fill in update text and click submit
   Given I am on the Update Request page of ID "1"
-  When I fill in the "update" text box
-  When I click on the Submit button
+  When I fill in the "UpdateText" text box
+  When I click on the "Submit" button
   Then I should see the Search Request Form
   
 Scenario: find previously updated request
@@ -35,5 +35,5 @@ Scenario: find previously updated request
 Scenario: check the update was successful
   Given I am on the search page
   When I click on ID "1"
-  Then I should see the Update Request form
+  Given I am on the Update Request page of ID "1"
   And the updates section should have updates

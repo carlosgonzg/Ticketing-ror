@@ -3,3 +3,12 @@ class ApplicationController < ActionController::Base
   before_filter :require_login
 end
 
+private
+def require_login
+   unless !session[:User].blank?
+       session[:return_to] = request.fullpath
+   	   redirect_to login_user_index_path
+>>>>>>> 67d0495f3286969f6a204f6342c3ca095a675cec
+   end
+end
+

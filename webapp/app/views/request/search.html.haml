@@ -19,7 +19,11 @@
                 %label Search category
                 %select{:name=>"SelectCategory", :active => "false"}
                   %option{:value=>"1"} Request id
+<<<<<<< HEAD
                   %option{:value=>"2"} User Name
+=======
+                  %option{:value=>"2"} Computer Name
+>>>>>>> 67d0495f3286969f6a204f6342c3ca095a675cec
                   %option{:value=>"3"} Status
                   %option{:value=>"3"} All
               %td
@@ -46,7 +50,11 @@
               - @requests.each do |request|
                 %tr
                   %td= link_to "#{request.id}",edit_request_path(request.id)
+<<<<<<< HEAD
                   %td= request.userName
+=======
+                  %td= request.ComputerName
+>>>>>>> 67d0495f3286969f6a204f6342c3ca095a675cec
                   %td= request.Subject
                   %td= request.Status
                   %td= request.created_at

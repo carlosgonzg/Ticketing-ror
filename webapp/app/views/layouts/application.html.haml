@@ -14,7 +14,11 @@
               %div{:class=>"nav pull-right"}
                 %ul{:class=>"nav nav-pills"}
                   %li
+<<<<<<< HEAD
                     %a{:href=>"#"}= session[:User][0].Username  
+=======
+                    %a{:href=>"#"}= session[:User][:Username]
+>>>>>>> 67d0495f3286969f6a204f6342c3ca095a675cec
                   %li 
                     =link_to "Sign out", logout_user_index_path
       %div{:style=>"width:960px;margin:0 auto;margin-top:43px"}
