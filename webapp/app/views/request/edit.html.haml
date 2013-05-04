@@ -5,10 +5,10 @@
       %tr
         %td
           %label{:class=>"checkbox"}
-          %input{:type=>"checkbox",:name=>"urgent", :value => @request.urgent?}Urgent
+          %input{:type=>"checkbox",:name=>"urgent", :disabled => true, :value => @request.urgent?}Urgent
         %td
           %label Issue Type
-          %select{:name=>"IssueType", :value => @request.IssueType}
+          %select{:name=>"IssueType", :disabled => true, :value => @request.IssueType}
             %option{:value=>"1"} Hardware
             %option{:value=>"2"} Software
             %option{:value=>"3"} Network
@@ -16,7 +16,7 @@
             %option{:value=>"5"} Peripheral
         %td
           %label Computer Name
-          %select{:name=>"ComputerName",:align=>"right", :value => @request.ComputerName}
+          %select{:name=>"ComputerName",:align=>"right", :disabled => true, :value => @request.ComputerName}
             %option{:value=>"MC"} Michael Carter's Laptop
             %option{:value=>"CG"} Carlos Gonzalez's Desktop
             %option{:value=>"MK"} Meenal's Tablet
@@ -24,25 +24,43 @@
       %tr
         %td{:colspan=>"3"}
           %label Subject
-          %input{:type=>"text",:name=>"Subject",:style=>"width:545px", :value => @request.Subject}
+          %input{:type=>"text",:name=>"Subject",:style=>"width:545px", :disabled => true, :value => @request.Subject}
       %tr
         %td{:colspan=>"3"}
           %label Description
-          %textarea{:rows=>"3",:name=>"Description",:style=>"width:545px" }= @request.Description
+          %textarea{:rows=>"3",:name=>"Description",:style=>"width:545px", :disabled => true }= @request.Description
       %tr
         %td{:colspan=>"3"}
           %label Updates
           %ul
-            -@request.updates.sort.each do |update|
-              %li= update.Date.to_s + " - " + update.UpdateText.to_s
+          -@request.updates.sort.each do |update|
+            %li= update.Date.to_s + " - " + update.UpdateText.to_s
       %tr
         %td
           %label Update
           %textarea{:rows=>"3", :name=>"UpdateText", :style=>"width:545px"}
+          - if session[:User][:UserType]==0
+            %textarea{:rows=>"3", :name=>"UpdateText", :style=>"width:545px" }
+          - else
+            %textarea{:rows=>"3", :name=>"UpdateText", :style=>"width:545px" , :disabled => "true"}
       %tr
         %td
           %label Solution
           %textarea{:rows=>"3", :name=>"Solution", :style=>"width:545px"}
+          - if session[:User][:UserType]==0
+            %textarea{:rows=>"3", :name=>"Solution", :style=>"width:545px" }
+          - else
+            %textarea{:rows=>"3", :name=>"Solution", :style=>"width:545px" , :disabled => "true"}
+      %tr
+        %td
+          %label Assigned Issue
+          %select{:name=>"Owner", :align=>"right", :value => @request.owner}
+            - @users.each do |user|
+              %option{:value=>user.Username}#{user.Username}
+      %tr
+        %td
+          %label{:class=>"checkbox"}
+          %input{:type=>"checkbox",:name=>"complete", :disabled => true, :value => "#{@request.complete}"}Complete
       %tr
         %td{:colspan=>"3"}= submit_tag 'Submit'
 

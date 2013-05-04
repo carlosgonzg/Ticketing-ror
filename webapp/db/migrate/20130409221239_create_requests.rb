@@ -7,10 +7,11 @@ class CreateRequests < ActiveRecord::Migration
       t.text :Subject
       t.text :Description
       t.text :Solution
-      t.text :Status
       t.text :email
       t.text :userName
+      t.text :owner
       t.timestamps
+      t.boolean :complete, :default => false 
     end
   end
   def down
