@@ -21,7 +21,7 @@
             %thead
               %tr
                 %th ID
-                %th Name
+                %th Username
                 %th Subject
                 %th Status
                 %th Date
@@ -32,13 +32,18 @@
                 %tr
                   %td= link_to "#{request.id}",edit_request_path(request.id)
                   %td= request.userName
-                  %td= request.ComputerName
                   %td= request.Subject
-                  %td= request.Status
+                  %td
+                    - if (request.complete) then
+                      %i{:class=>"icon-ok"}
+                    - else
+                      %i{:class=>"icon-remove"}
                   %td= request.created_at
                   %td
                     - if (!request.urgent.to_s.empty?) then
                       %i{:class=>"icon-ok"}
+                    - else
+                      %i{:class=>"icon-remove"}                      
                 %tr   
     %li{:class=>"tab-pane", :id=>"nR"}
     %li{:class=>"tab-pane active", :id=>"sR"}

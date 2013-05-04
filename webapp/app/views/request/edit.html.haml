@@ -5,7 +5,10 @@
       %tr
         %td
           %label{:class=>"checkbox"}
-          %input{:type=>"checkbox",:name=>"urgent", :disabled => true, :checked => @request.urgent?}Urgent
+          - if @request.urgent
+            %input{:type=>"checkbox",:name=>"urgent", :disabled => true, :checked => 'checked'}Urgent
+          - else
+            %input{:type=>"checkbox",:name=>"urgent", :disabled => true}Urgent
         %td
           %label Issue Type
           %select{:name=>"IssueType", :disabled => true, :value => @request.IssueType}
@@ -38,7 +41,6 @@
       %tr
         %td
           %label Update
-          %textarea{:rows=>"3", :name=>"UpdateText", :style=>"width:545px"}
           - if session[:User][:UserType]==0
             %textarea{:rows=>"3", :name=>"UpdateText", :style=>"width:545px" }
           - else
@@ -46,7 +48,6 @@
       %tr
         %td
           %label Solution
-          %textarea{:rows=>"3", :name=>"Solution", :style=>"width:545px"}
           - if session[:User][:UserType]==0
             %textarea{:rows=>"3", :name=>"Solution", :style=>"width:545px" }
           - else
@@ -60,7 +61,10 @@
       %tr
         %td
           %label{:class=>"checkbox"}
-          %input{:type=>"checkbox",:name=>"complete", :disabled => true, :value => "#{@request.complete}"}Complete
+          - if @request.complete 
+            %input{:type=>"checkbox",:name=>"complete", :disabled=>true,:checked => "#{@request.complete}"}Complete
+          - else
+            %input{:type=>"checkbox",:name=>"complete"}Complete
       %tr
         %td{:colspan=>"3"}= submit_tag 'Submit'
 
