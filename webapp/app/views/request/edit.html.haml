@@ -5,7 +5,7 @@
       %tr
         %td
           %label{:class=>"checkbox"}
-          %input{:type=>"checkbox",:name=>"urgent", :disabled => true, :value => @request.urgent?}Urgent
+          %input{:type=>"checkbox",:name=>"urgent", :disabled => true, :checked => @request.urgent?}Urgent
         %td
           %label Issue Type
           %select{:name=>"IssueType", :disabled => true, :value => @request.IssueType}
