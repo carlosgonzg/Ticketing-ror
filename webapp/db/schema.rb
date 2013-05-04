@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20130425231259) do
     t.text     "Subject"
     t.text     "Description"
     t.text     "Solution"
+    t.text     "Status"
     t.text     "email"
     t.text     "userName"
     t.text     "owner"

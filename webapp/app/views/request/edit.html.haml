@@ -67,6 +67,7 @@
             %input{:type=>"checkbox",:name=>"complete"}Complete
       %tr
         %td{:colspan=>"3"}= submit_tag 'Submit'
+        %td{:colspan=>"3"}= button_to "Go Back", '#', :onclick => 'history.back(); return false;'
 
 
 
