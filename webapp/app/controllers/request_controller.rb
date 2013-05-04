@@ -18,6 +18,7 @@ class RequestController < ApplicationController
 		request = Request.new
 		request.urgent = (params[:urgent] == "on")? "t":"f"
 		request.IssueType = params[:IssueType]
+        request.userName = session[:User][:Username]
 		request.ComputerName = params[:ComputerName]
 		request.Subject = params[:Subject]
 		request.Description = params[:Description]
