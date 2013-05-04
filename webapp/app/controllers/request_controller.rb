@@ -41,6 +41,7 @@ class RequestController < ApplicationController
       id = params[:id]
       @request = Request.find(id)
       @updates = @request.updates
+      @users = User.find(:all, :conditions=>"UserType == 0 OR UserType == 1")
     end
 
     def update

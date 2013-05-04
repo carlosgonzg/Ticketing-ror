@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-requests=[{:ComputerName => 'meenal tablet', :Subject => 'not working', :urgent => 'true'},
-    	  {:ComputerName => 'micheals computer', :Subject => 'word not working', :urgent => 'false'},
+requests=[{:ComputerName => 'meenal tablet', :Subject => 'not working', :urgent => 'true', :owner => 'mlcarter'},
+{:ComputerName => 'micheals computer', :Subject => 'word not working', :urgent => 'false', :owner => 'mlcarter'},
   	 ]
 user1 = {:UserType => 0, :Fullname => "Michael Carter", :Username => "mlcarter",:password_digest => "mlcarter",:email => "mlcarter815@gmail.com" }
 user2 = {:UserType => 0, :Fullname => "Meenal Khandelwal",:Username => "mkhandelwal",:password_digest => "mkhandelwal",:email => "meenal.khandelwal616@gmail.com" }
