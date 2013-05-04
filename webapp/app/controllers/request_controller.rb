@@ -1,6 +1,7 @@
 require 'date'   
 
 class RequestController < ApplicationController
+
     def index
         redirect_to dashboard_request_index_path
     end
@@ -15,7 +16,8 @@ class RequestController < ApplicationController
 		flash[:error] = "Information not completed. Please complete the information"
 	else
 		request = Request.new
-		request.urgent = params[:urgent]
+		request.urgent = (params[:urgent] == "on")? "t":"f"
+        puts "KAWABONGA " + request.urgent.to_s
 		request.IssueType = params[:IssueType]
 		request.ComputerName = params[:ComputerName]
 		request.Subject = params[:Subject]
@@ -24,7 +26,7 @@ class RequestController < ApplicationController
 	
 		if(request.save) then
 			  flash[:notice] = "The Request was successfully created."
-              UserMailer.new_request(session[:User],request).deliver
+            UserMailer.new_request(session[:User],request).deliver
 		    else
 		      flash[:error] = "There was an error saving the new request"
 		    end
@@ -87,5 +89,15 @@ class RequestController < ApplicationController
     end
 
     def dashboard
+        requests_total = Request.count(:all)
+        @completed_requests = 5#Request.count(:all,:conditions=>"complete=true")
+        @not_completed_requests = requests_total - @completed_requests
+        @requests_by_hardware = Request.count(:all,:conditions=>"IssueType=1")
+        @requests_by_software = Request.count(:all,:conditions=>"IssueType=2")
+        @requests_by_network = Request.count(:all,:conditions=>"IssueType=3")
+        @requests_by_login = Request.count(:all,:conditions=>"IssueType=4")
+        @requests_by_peripheral = Request.count(:all,:conditions=>"IssueType=5")
+        @not_urgent = Request.count(:all,:conditions=>"urgent='f'")
+        @urgent = Request.count(:all,:conditions=>"urgent='t'")
     end
 end

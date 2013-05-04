@@ -1,4 +1,4 @@
-%div{:class=> "tabbable tabs-left container"}
+%div{:class=> "tabbable tabs-left container",:style=>"width:1090px"}
   %ul{:class=>"nav nav-tabs"}
     %li{:class=>"active"}
       =link_to "My Dashboard", dashboard_request_index_path
@@ -6,9 +6,17 @@
       =link_to "New Request", new_request_path
     %li
       =link_to "Search Request", search_request_index_path
-  %div{:class=>"tab-content"}
+  %div{:class=>"tab-content",:style=>"width:960px"}
     %li{:class=>"tab-pane active", :id=>"mD"}
       %h1 My Dashboard
+      %table{:style=>"width:100%"}
+        %tr
+          %td
+            %div{:id=>"completed_request_div",:style=>"width:400px;height:400px;","data-completed"=>"#{@completed_requests}","data-not-completed"=>"#{@not_completed_requests}"}
+          %td  
+            %div{:id=>"request_by_type_div",:style=>"width:400px;height:400px;","data-hardware"=>"#{@requests_by_hardware}","data-software"=>"#{@requests_by_software}","data-network"=>"#{@requests_by_network}","data-login"=>"#{@requests_by_login}","data-peripheral"=>"#{@requests_by_peripheral}"}
+        %tr
+          %td{:colspan=>"2"}  
+            %div{:id=>"urgent_request_div",:style=>"width:400px;height:400px;margin:0 auto","data-urgent"=>"#{@urgent}","data-not-urgent"=>"#{@not_urgent}"}
     %li{:class=>"tab-pane", :id=>"nR"}
     %li{:class=>"tab-pane active", :id=>"sR"}
-

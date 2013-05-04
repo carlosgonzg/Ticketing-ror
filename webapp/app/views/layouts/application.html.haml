@@ -4,6 +4,7 @@
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
     %script{:type=>"text/javascript",:src=>"https://www.google.com/jsapi"}
+    %script{:type=>"text/javascript"}google.load("visualization", "1", {packages:["corechart"]});
     = csrf_meta_tags
 
   %body{"data-spy"=>"scroll","data-target"=>".bs-docs-sidebar","data-twttr-rendered"=>"true"}
@@ -18,7 +19,7 @@
                     %a{:href=>"#"}= session[:User][:Username]
                   %li 
                     =link_to "Sign out", logout_user_index_path
-      %div{:style=>"width:960px;margin:0 auto;margin-top:43px"}
+      %div{:style=>"margin:0 auto;margin-top:43px"}
         - if flash[:notice]
           %span#notice.message{:class=>"label label-success"}= flash[:notice]
         - elsif flash[:warning]
