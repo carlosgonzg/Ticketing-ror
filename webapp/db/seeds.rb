@@ -13,11 +13,12 @@ user1 = {:UserType => 0, :Fullname => "Michael Carter", :Username => "mlcarter",
 user2 = {:UserType => 0, :Fullname => "Meenal Khandelwal",:Username => "mkhandelwal",:password_digest => "mkhandelwal",:email => "meenal.khandelwal616@gmail.com" }
 user3 = {:UserType => 0, :Fullname => "Carlos Gonzalez", :Username => "cagonzalez",:password_digest => "cagonzalez",:email => "carltronik@gmail.com" }
 user4 = {:UserType => 0, :Fullname => "Harpreet Singh", :Username => "hsingh",:password_digest => "hsingh",:email => "harpreet-singh-1@uiowa.edu" }
-
+user_test = {:UserType => 2, :Fullname => "Test User", :Username => "test",:password_digest => "test",:email => "carlosalfredo-gonzalezgonzalez@uiowa.edu" }
 requests.each do |request|
-  Request.create!(request)
-end
+    Request.create!(request)
+    end
 User.create!(user1)
 User.create!(user2)
 User.create!(user3)
 User.create!(user4)
+User.create!(user_test)

@@ -89,6 +89,9 @@ class RequestController < ApplicationController
     end
 
     def dashboard
+        if session[:User][:UserType] == 2 then
+            redirect_to new_request_path
+        end
         requests_total = Request.count(:all)
         @completed_requests = 5#Request.count(:all,:conditions=>"complete=true")
         @not_completed_requests = requests_total - @completed_requests
@@ -99,5 +102,6 @@ class RequestController < ApplicationController
         @requests_by_peripheral = Request.count(:all,:conditions=>"IssueType=5")
         @not_urgent = Request.count(:all,:conditions=>"urgent='f'")
         @urgent = Request.count(:all,:conditions=>"urgent='t'")
+        @requests = Request.find(:all,:conditions=>"owner='#{session[:User][:Username]}'")
     end
 end
