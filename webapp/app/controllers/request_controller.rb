@@ -1,6 +1,7 @@
 require 'date'   
 
 class RequestController < ApplicationController
+
     def index
         redirect_to dashboard_request_index_path
     end
@@ -15,16 +16,17 @@ class RequestController < ApplicationController
 		flash[:error] = "Information not completed. Please complete the information"
 	else
 		request = Request.new
-		request.urgent = params[:urgent]
+		request.urgent = (params[:urgent] == "on")? "t":"f"
 		request.IssueType = params[:IssueType]
+        request.userName = session[:User][:Username]
 		request.ComputerName = params[:ComputerName]
 		request.Subject = params[:Subject]
 		request.Description = params[:Description]
-		request.Status = "Open"
+		request.complete = false
 	
 		if(request.save) then
 			  flash[:notice] = "The Request was successfully created."
-              UserMailer.new_request(session[:User],request).deliver
+            UserMailer.new_request(session[:User],request).deliver
 		    else
 		      flash[:error] = "There was an error saving the new request"
 		    end
@@ -39,6 +41,7 @@ class RequestController < ApplicationController
       id = params[:id]
       @request = Request.find(id)
       @updates = @request.updates
+      @users = User.find(:all, :conditions=>"UserType == 0 OR UserType == 1")
     end
 
     def update
@@ -95,5 +98,19 @@ class RequestController < ApplicationController
     end
 
     def dashboard
+        if session[:User][:UserType] == 2 then
+            redirect_to new_request_path
+        end
+        requests_total = Request.count(:all)
+        @completed_requests = Request.count(:all,:conditions=>"complete='t'")
+        @not_completed_requests = requests_total - @completed_requests
+        @requests_by_hardware = Request.count(:all,:conditions=>"IssueType=1")
+        @requests_by_software = Request.count(:all,:conditions=>"IssueType=2")
+        @requests_by_network = Request.count(:all,:conditions=>"IssueType=3")
+        @requests_by_login = Request.count(:all,:conditions=>"IssueType=4")
+        @requests_by_peripheral = Request.count(:all,:conditions=>"IssueType=5")
+        @not_urgent = Request.count(:all,:conditions=>"urgent='f'")
+        @urgent = Request.count(:all,:conditions=>"urgent='t'")
+        @requests = Request.find(:all,:conditions=>"owner='#{session[:User][:Username]}'")
     end
 end

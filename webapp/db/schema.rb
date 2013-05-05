@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(:version => 20130425231259) do
     t.text     "Status"
     t.text     "email"
     t.text     "userName"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.text     "owner"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "complete",     :default => false
   end
 
   create_table "updates", :force => true do |t|

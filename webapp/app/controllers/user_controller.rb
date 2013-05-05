@@ -11,7 +11,7 @@ class UserController < ApplicationController
 		answer = User.authenticate(params[:Username],params[:Password])
 		if answer == 0 then
             users = User.find(:all,:conditions=>"Username = '#{params[:Username]}'")
-            user_hash = {:Username => users[0].Username,:email => users[0].email,:Fullname => users[0].Fullname,:UserType => users[0].UserType}
+            user_hash = {:Username => users[0].Username,:email => users[0].email,:Fullname => users[0].Fullname,:UserType => users[0].UserType,:id=>users[0].id}
             session[:User] = user_hash
             if session[:return_to].blank? then
                 redirect_to new_request_path
@@ -37,5 +37,8 @@ class UserController < ApplicationController
             end
         end
 	end
-    
+    def logout
+        session.delete :User
+        redirect_to login_user_index_path
+    end
 end

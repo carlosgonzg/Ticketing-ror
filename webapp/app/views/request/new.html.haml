@@ -1,7 +1,8 @@
 %div{:class=> "tabbable tabs-left container"}
   %ul{:class=>"nav nav-tabs"}
-    %li 
-      =link_to "My Dashboard", dashboard_request_index_path
+    -if session[:User][:UserType] == 0 || session[:User][:UserType] == 1
+      %li 
+        =link_to "My Dashboard", dashboard_request_index_path
     %li{:class=>"active"}
       =link_to "New Request", new_request_path
     %li 
