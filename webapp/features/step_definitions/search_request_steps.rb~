@@ -32,7 +32,6 @@ end
 
 Then /^I should only see request with "(.*?)" as "(.*?)"$/ do |category, value|
   result = false
-  puts page.body
   all("tr").each do |tr|
     if tr.has_content?(value)
       result = true
@@ -40,6 +39,15 @@ Then /^I should only see request with "(.*?)" as "(.*?)"$/ do |category, value|
     end
   end
   assert result  
+end
+
+Then /^I should only see request with urgent as true$/ do
+  all("tr").each do |tr|
+    if tr.has_css?('icon-ok')
+      result = true
+      break
+    end
+  end
 end
 
 But /^I should not see request with "(.*?)" as "(.*?)"$/ do |category, value|
@@ -82,4 +90,13 @@ end
 
 And /^I should also see a flash notice saying request not found$/ do 
   assert "No record present. Check the search value and try again"
+end
+
+But /^I should not see request with urgent as false $/ do 
+  r = Request.find_all_by_urgent(false)
+  if page.respond_to? :should
+      page.should have_no_css('table#search_result tr.r')
+  else
+      assert page.has_no_css?('table#search_result tr.r')
+  end 
 end

@@ -61,7 +61,15 @@ class RequestController < ApplicationController
 			@result = Request.find(:all, :conditions => ["userName LIKE ?", %(%#{params[:val]}%)])
 		elsif(params[:SelectCategory] == "3")
 			@result = Request.find_all_by_Status(params[:val])
-		elsif(params[:SelectCategory] == "4")
+                elsif(params[:SelectCategory] == "4")
+			if(params[:val] == 'true')
+				@result = Request.find_all_by_urgent(true)
+			elsif(params[:val] == 'false')
+				@result = Request.find_all_by_urgent(false)
+			else
+				@request = nil;
+			end
+		elsif(params[:SelectCategory] == "5")
 			@result = Request.find(:all)
 		end
 		if(@result.nil?)

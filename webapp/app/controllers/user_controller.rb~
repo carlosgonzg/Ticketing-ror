@@ -1,10 +1,7 @@
 class UserController < ApplicationController
     skip_before_filter :require_login
-        
-        def edit
-	end
-	
-        def index
+    
+	def index
 	end
     
 	def create

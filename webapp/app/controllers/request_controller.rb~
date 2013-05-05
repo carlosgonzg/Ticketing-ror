@@ -21,11 +21,10 @@ class RequestController < ApplicationController
 		request.Subject = params[:Subject]
 		request.Description = params[:Description]
 		request.Status = "Open"
-		#request.userName = 
 	
 		if(request.save) then
 			  flash[:notice] = "The Request was successfully created."
-              UserMailer.new_request(session[:User][0],request).deliver
+              UserMailer.new_request(session[:User],request).deliver
 		    else
 		      flash[:error] = "There was an error saving the new request"
 		    end
@@ -46,25 +45,31 @@ class RequestController < ApplicationController
       new_update = params[:UpdateText]
       @request = Request.find(params[:id])
       @request.updates.create(:UpdateText=>new_update, :Date=>DateTime.now.to_s)
-         
-          
       redirect_to request_index_path
     end
 
     def search
 	if(!params[:val].blank?)		
 		if(params[:SelectCategory] == "1")			
-			if((params[:val].to_i))			
-				@result = Request.find_by_id(params[:val].to_i)
-			else
-				flash[:error] = "No record present. Check the search value and try again"
-				@requests = Request.find(:all)
-			end
+            if((params[:val].to_i))			
+                @result = Request.find_by_id(params[:val].to_i)
+            else
+                flash[:error] = "No record present. Check the search value and try again"
+                @requests = Request.find(:all)
+            end
 		elsif(params[:SelectCategory] == "2")
 			@result = Request.find(:all, :conditions => ["userName LIKE ?", %(%#{params[:val]}%)])
 		elsif(params[:SelectCategory] == "3")
 			@result = Request.find_all_by_Status(params[:val])
-		elsif(params[:SelectCategory] == "4")
+                elsif(params[:SelectCategory] == "4")
+			if(params[:val] == 'true')
+				@result = Request.find_all_by_urgent(true)
+			elsif(params[:val] == 'false')
+				@result = Request.find_all_by_urgent(false)
+			else
+				@request = nil;
+			end
+		elsif(params[:SelectCategory] == "5")
 			@result = Request.find(:all)
 		end
 		if(@result.nil?)

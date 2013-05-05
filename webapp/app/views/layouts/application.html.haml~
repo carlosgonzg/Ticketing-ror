@@ -14,9 +14,9 @@
               %div{:class=>"nav pull-right"}
                 %ul{:class=>"nav nav-pills"}
                   %li
-                    %a{:href=>"#"}= session[:User][0].Username  
+                    =link_to session[:User][:Username], edit_user_index_path
                   %li 
-                    =link_to "Sign out", new_request_path
+                    =link_to "Sign out", logout_user_index_path
       %div{:style=>"width:960px;margin:0 auto;margin-top:43px"}
         - if flash[:notice]
           %span#notice.message{:class=>"label label-success"}= flash[:notice]
