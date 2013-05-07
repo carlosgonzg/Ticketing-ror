@@ -1,11 +1,53 @@
 class UserController < ApplicationController
     skip_before_filter :require_login
-        
-        def edit
-	end
 	
+
+	def edit
+    	end
+
+	def update
+          @bool = true
+	  @u = User.find_by_id(session[:User][:id])
+	  if(!params[:fullname].blank?)
+            @u.Fullname = params[:fullname]
+            @u.save
+	  end
+	  if(!params[:emailid].blank?)
+            @u.email = params[:emailid]
+            @u.save
+	  end
+	  if(!params[:OldPassword].blank?)
+	    if(params[:OldPassword] == @u.password_digest)
+		    if(!params[:NewPassword].blank? && !params[:New1Password].blank?)             
+		      if(params[:NewPassword]==params[:New1Password])
+		        @u.password_digest = params[:NewPassword]
+		        @u.save
+		      else
+		        flash[:error] = "Both New Password does not matches"
+                        @bool = false
+		      end
+		    else
+		      flash[:error] = "New Password are not entered"
+                      @bool = false
+		    end
+	    else
+		flash[:error] = "You have entered wrong password"
+		@bool = false
+            end
+          end
+	  if(@bool)
+          	redirect_to new_request_path
+	  else
+		redirect_to edit_user_path
+          end
+    	end
+
         def index
 	end
+
+	def show
+	 @user = User.find(session[:User][:id])  
+        end
     
 	def create
 		answer = User.authenticate(params[:Username],params[:Password])

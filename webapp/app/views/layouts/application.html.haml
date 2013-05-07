@@ -16,7 +16,7 @@
               %div{:class=>"nav pull-right"}
                 %ul{:class=>"nav nav-pills"}
                   %li
-                    =link_to session[:User][:Username], edit_user_path
+                    =link_to "#{session[:User][:Username]}", user_path(session[:User][:id])
                   %li 
                     =link_to "Sign out", logout_user_index_path
       %div{:style=>"margin:0 auto;margin-top:43px"}
