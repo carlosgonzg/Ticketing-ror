@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/home/ubuntu/selt_team6/webapp/app/controllers/application_controller.rb": [
+      "/home/ubuntu/selt/selt_team6/webapp/app/controllers/application_controller.rb": [
         1,
         1,
         1,
@@ -15,34 +15,35 @@
         null,
         null
       ],
-      "/home/ubuntu/selt_team6/webapp/app/helpers/application_helper.rb": [
+      "/home/ubuntu/selt/selt_team6/webapp/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/selt_team6/webapp/app/helpers/request_helper.rb": [
+      "/home/ubuntu/selt/selt_team6/webapp/app/helpers/request_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/selt_team6/webapp/app/helpers/update_helper.rb": [
+      "/home/ubuntu/selt/selt_team6/webapp/app/helpers/update_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/selt_team6/webapp/app/helpers/user_helper.rb": [
+      "/home/ubuntu/selt/selt_team6/webapp/app/helpers/user_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/selt_team6/webapp/app/controllers/request_controller.rb": [
+      "/home/ubuntu/selt/selt_team6/webapp/app/controllers/request_controller.rb": [
         1,
         null,
         1,
-        1,
-        0,
-        null,
         null,
         1,
         0,
         null,
         null,
+        1,
+        0,
+        null,
+        null,
         null,
         1,
         0,
@@ -55,6 +56,7 @@
         0,
         0,
         0,
+        0,
         null,
         0,
         0,
@@ -70,6 +72,7 @@
         null,
         null,
         1,
+        0,
         0,
         0,
         0,
@@ -95,6 +98,12 @@
         1,
         2,
         1,
+        0,
+        1,
+        0,
+        null,
+        1,
+        null,
         1,
         1,
         0,
@@ -107,12 +116,12 @@
         0,
         null,
         5,
-        2,
-        2,
+        3,
         3,
         2,
-        2,
-        2,
+        1,
+        1,
+        1,
         null,
         0,
         null,
@@ -129,20 +138,79 @@
         null,
         null,
         1,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         null,
         null
       ],
-      "/home/ubuntu/selt_team6/webapp/app/models/request.rb": [
+      "/home/ubuntu/selt/selt_team6/webapp/app/models/request.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/ubuntu/selt_team6/webapp/app/controllers/user_controller.rb": [
+      "/home/ubuntu/selt/selt_team6/webapp/app/controllers/user_controller.rb": [
         1,
         1,
         null,
+        null,
         1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
         null,
         null,
         1,
@@ -175,10 +243,13 @@
         null,
         null,
         null,
+        1,
+        0,
+        0,
         null,
         null
       ],
-      "/home/ubuntu/selt_team6/webapp/app/models/user.rb": [
+      "/home/ubuntu/selt/selt_team6/webapp/app/models/user.rb": [
         1,
         1,
         null,
@@ -197,7 +268,7 @@
         null,
         null
       ],
-      "/home/ubuntu/selt_team6/webapp/app/mailers/user_mailer.rb": [
+      "/home/ubuntu/selt/selt_team6/webapp/app/mailers/user_mailer.rb": [
         1,
         1,
         1,
@@ -212,14 +283,14 @@
         null,
         null
       ],
-      "/home/ubuntu/selt_team6/webapp/app/models/update.rb": [
+      "/home/ubuntu/selt/selt_team6/webapp/app/models/update.rb": [
         1,
         1,
         1,
         null
       ]
     },
-    "timestamp": 1367628842
+    "timestamp": 1368056714
   },
   "RSpec": {
     "coverage": {
