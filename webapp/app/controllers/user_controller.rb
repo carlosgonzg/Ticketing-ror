@@ -3,7 +3,8 @@ class UserController < ApplicationController
 	
 
 	def edit
-    	end
+        @u = User.find_by_id(session[:User][:id])
+    end
 
 	def update
           @bool = true
