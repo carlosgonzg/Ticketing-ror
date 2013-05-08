@@ -1,31 +1,29 @@
-
-%h1 User Information of #{@user.Username}
-= form_tag edit_user_path,:method => :get, :class=>"form-horizontal",:style=>"margin:40" do
-  %fieldset
-    %table#edit_user{:style=>"width: 600px"}
-      %tr
-        %td
-          %h5 User's Full Name: #{@user.Fullname}
-          %br
-      %tr
-        %td
-          %h5 email Id: #{@user.email}
-          %br
-      %tr
-        %td
-          %h5 Created at: #{@user.created_at}
-          %br
-      %tr
-        %td
-          %h5 Updated at: #{@user.updated_at}
-          %br
-      %tr
-        %td
-          %br
-          = submit_tag "Edit Profile",:class=>"btn btn-inverse"
-        %td
-          %br
-          = button_to " Go Back ", '#', :class=>"btn btn-inverse", :onclick => 'history.back(); return false;'
+%ul{:class=>"nav nav-tabs",:style=>"min-width:560px;width:650px;margin: 0 auto;margin-top:50px"}
+  %li{:class=>"active"}
+    = link_to "View Profile",user_path(session[:User][:id])
+  %li
+    = link_to "Edit Profile",edit_user_path(session[:User][:id])
+  %div{:class=>"tab-content",:style=>"min-width:560px;width:650px;margin: 0 auto;margin-top:50px"}
+    %li{:class=>"tab-pane active"}    
+      %h1 User Information of #{@user.Username}
+      %table#edit_user{:style=>"width: 600px"}
+        %tr
+          %td
+            %h5 User's Full Name: #{@user.Fullname}
+        %tr
+          %td
+            %h5 email Id: #{@user.email}
+        %tr
+          %td
+            %h5 Created at: #{@user.created_at}
+        %tr
+          %td
+            %h5 Updated at: #{@user.updated_at}
+        %tr
+          %td
+          %td
+            = button_to " Go Back ", '#', :class=>"btn btn-inverse", :onclick => 'history.back(); return false;'
+    %li{:class=>"tab-pane"}   
 
 
 
