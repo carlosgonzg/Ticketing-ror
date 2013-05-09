@@ -9,4 +9,4 @@
       %input{:type=>"password",:id=>"Password",:name=>"Password",:placeholder=>"Password",:style=>"height:30px"}
   %div{:class=>"control-group"}
     %div{:class=>"controls"}
-      = submit_tag "Sign In",:class=>"btn-inverse"
+      = submit_tag "Sign In",:class=>"btn btn-inverse"

@@ -1,7 +1,8 @@
 %div{:class=> "tabbable tabs-left container"}
   %ul{:class=>"nav nav-tabs"}
-    %li
-      =link_to "My Dashboard", dashboard_request_index_path
+    -if session[:User][:UserType] == 0 || session[:User][:UserType] == 1
+      %li 
+        =link_to "My Dashboard", dashboard_request_index_path
     %li
       =link_to "New Request", new_request_path
     %li{:class=>"active"}
@@ -12,24 +13,17 @@
     %li{:class=>"tab-pane active", :id=>"sR"}
       %h1 Search Request
       = form_tag search_request_index_path do
-<<<<<<< HEAD
         %fieldset{:id => "details"}
-=======
-        %fieldset {:id => "details"}
->>>>>>> 67d0495f3286969f6a204f6342c3ca095a675cec
           %table#search_request{:style=>"width: 600px"}
             %tr
               %td
                 %label Search category
                 %select{:name=>"SelectCategory", :active => "false"}
                   %option{:value=>"1"} Request id
-<<<<<<< HEAD
                   %option{:value=>"2"} User Name
-=======
-                  %option{:value=>"2"} Computer Name
->>>>>>> 67d0495f3286969f6a204f6342c3ca095a675cec
-                  %option{:value=>"3"} Status
-                  %option{:value=>"3"} All
+                  %option{:value=>"3"} complete
+                  %option{:value=>"4"} Urgent
+                  %option{:value=>"5"} All
               %td
               %td
                 %label Value
@@ -44,9 +38,9 @@
             %thead
               %tr
                 %th ID
-                %th Name
+                %th Username
                 %th Subject
-                %th Status
+                %th Complete
                 %th Date
                 %th Urgent
               %tr
@@ -54,16 +48,18 @@
               - @requests.each do |request|
                 %tr
                   %td= link_to "#{request.id}",edit_request_path(request.id)
-<<<<<<< HEAD
                   %td= request.userName
-=======
-                  %td= request.ComputerName
->>>>>>> 67d0495f3286969f6a204f6342c3ca095a675cec
                   %td= request.Subject
-                  %td= request.Status
+                  %td
+                    - if (!request.complete) then
+                      %i{:class=>"icon-ok"}
+                    - else
+                      %i{:class=>"icon-remove"}
                   %td= request.created_at
                   %td
-                    - if (!request.urgent.to_s.empty?) then
+                    - if (request.urgent) then
                       %i{:class=>"icon-ok"}
-                %tr
+                    - else
+                      %i{:class=>"icon-remove"}                      
+                %tr  
 

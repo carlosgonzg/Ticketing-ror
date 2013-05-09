@@ -13,10 +13,14 @@
         %div{:class=>"navbar navbar-inverse navbar-fixed-top"}
           %div{:class=>"navbar-inner"}
             %div{:class=>"container"}
+              %div{:class=>"nav pull-left"} 
+                %ul{:class=>"nav nav-pills"}
+                  %li
+                    =link_to "Home", request_index_path
               %div{:class=>"nav pull-right"}
                 %ul{:class=>"nav nav-pills"}
                   %li
-                    %a{:href=>"#"}= session[:User][:Username]
+                    =link_to "#{session[:User][:Username]}", user_path(session[:User][:id])
                   %li 
                     =link_to "Sign out", logout_user_index_path
       %div{:style=>"margin:0 auto;margin-top:43px"}

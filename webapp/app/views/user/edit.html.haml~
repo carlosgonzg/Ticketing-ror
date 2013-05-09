@@ -1,0 +1,46 @@
+
+%h1 Edit User Information
+= form_tag user_path,:method => :put, :class=>"form-horizontal",:style=>"margin:40" do
+  %fieldset
+    %table#edit_user{:style=>"width: 600px"}
+      %tr
+        %td
+          %label User's Full Name:
+          %input{:type=>"text",:id=>"FullName",:name=>"fullname",:placeholder=>"Type name here",:style=>"height:30px"}
+      %tr
+        %td 
+          %br
+      %tr
+        %td
+          %label email Id:
+          %input{:type=>"text",:id=>"emailid",:name=>"emailid",:placeholder=>"Type emailid here",:style=>"height:30px"}
+      %tr
+        %td
+          %br
+      %tr
+        %td
+          %h5 Change Password:
+          %label Old Password
+          %input{:type=>"password",:id=>"OldPassword",:name=>"OldPassword",:placeholder=>"",:style=>"height:30px"}
+      %tr
+        %td
+          %br
+          %label New Password
+          %input{:type=>"password",:id=>"NewPassword",:name=>"NewPassword",:placeholder=>"",:style=>"height:30px"}
+      %tr
+        %td
+          %br
+          %label Confirm New Password
+          %input{:type=>"password",:id=>"New1Password",:name=>"New1Password",:placeholder=>"",:style=>"height:30px"}
+      %tr
+        %td
+      %tr
+        %td
+          %br
+          = submit_tag "Save Changes",:class=>"btn btn-inverse"
+        %td
+          %br
+          = button_to " Go Back ", '#', :class=>"btn btn-inverse", :onclick => 'history.back(); return false;'
+
+
+

@@ -18,4 +18,8 @@ class UserMailer < ActionMailer::Base
     @request = request_r
       mail(:to=>[user[:email]],:subject=> "You have been assigned a new request")
   end
+  def create_user(user)
+    @user = user
+    mail(:to=>user.email,:subject=> "New User has been assigned for you!")
+  end
 end

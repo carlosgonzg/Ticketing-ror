@@ -7,10 +7,10 @@ making my search efficient
 Background: request have been added to Request
 
 Given the following request have been added to Request:
-  |ComputerName | Subject | urgent | Status |  userName   |
-  | Aladdin     | hi      | yes    | open   | mkhandelwal |
-  | The         | no      | no     | close  |             |
-  | When	| be      | yes    | open   | mkhandelwal |
+  |ComputerName | Subject | urgent | complete |  userName   |
+  | Aladdin     | hi      | true   | true     | mkhandelwal |
+  | The         | no      | false  | false    |             |
+  | When	| be      | true   | true     | mkhandelwal |
 
 And the following users have been added to User:
   | UserType | Fullname 	| Username   | password_digest | email                          |
@@ -48,12 +48,19 @@ Scenario: search result using all
 
 Scenario: search result using status
   Given I am on the search page
-  When I select search category as "Status" and put the value as "open"
-  Then I should only see request with "Status" as "open" 
-  But I should not see request with status as "close"
+  When I select search category as "complete" and put the value as "true"
+  Then I should only see request with complete as true 
+  But I should not see request with complete as false
+
+Scenario: search result using urgent
+  Given I am on the search page
+  When I select search category as "Urgent" and put the value as "true"
+  Then I should only see request with urgent as true 
+  But I should not see request with urgent as false
 
 Scenario: search result not found
   Given I am on the search page
   When I select search category as "Request id" and put the value as "456"
   Then I should see all the request
   And I should also see a flash notice saying request not found
+

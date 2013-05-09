@@ -1,0 +1,43 @@
+%ul{:class=>"nav nav-tabs",:style=>"min-width:560px;width:650px;margin: 0 auto;margin-top:50px"}
+  %li
+    = link_to "View Profile",user_path(session[:User][:id])
+  %li
+    = link_to "Edit Profile",edit_user_path(session[:User][:id])
+  %li{:class=>"active"}
+    = link_to "Create User",new_user_path
+  %div{:class=>"tab-content",:style=>"min-width:560px;width:650px;margin: 0 auto;margin-top:50px"}
+    %li{:class=>"tab-pane"}
+    %li{:class=>"tab-pane"}
+    %li{:class=>"tab-pane active"}  
+      %h1 Create User
+      = form_tag new_user_path,:method => :put, :class=>"form-horizontal",:style=>"margin:40" do
+        %fieldset
+          %table#edit_user{:style=>"width: 600px"}
+            %tr
+              %td
+                %label Type of User:
+                %select{:id=>"UserType",:name=>"UserType",:style=>"height:30px"}
+                  %option{:value=>"0"}Admin
+                  %option{:value=>"1"}IT Staff
+                  %option{:value=>"2"}User                  
+            %tr 
+              %td
+                %label User's Full Name:
+                %input{:type=>"text",:id=>"FullName",:name=>"fullname",:placeholder=>"Type name here",:style=>"height:30px"}
+            %tr
+              %td 
+            %tr
+              %td
+                %label email Id:
+                %input{:type=>"text",:id=>"emailid",:name=>"emailid",:placeholder=>"Type emailid here",:style=>"height:30px"}
+            %tr
+              %td
+                %br
+            %tr
+              %td
+                = submit_tag "Create User",:class=>"btn btn-inverse"
+              %td
+                = button_to " Go Back ", '#', :class=>"btn btn-inverse", :onclick => 'history.back(); return false;'
+
+
+
