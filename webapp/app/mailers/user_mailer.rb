@@ -10,4 +10,10 @@ class UserMailer < ActionMailer::Base
       end
 	mail(:to=>email_array,:subject=> "#{request_r.Subject}")
   end
+    
+    
+    def create_user(user)
+        @user = user
+        mail(:to=>user.email,:subject=> "New User has been assigned for you!")
+    end
 end

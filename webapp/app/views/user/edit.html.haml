@@ -3,6 +3,8 @@
     = link_to "View Profile",user_path(session[:User][:id])
   %li{:class=>"active"}
     = link_to "Edit Profile",edit_user_path(session[:User][:id])
+  %li
+    = link_to "Create User",new_user_path    
   %div{:class=>"tab-content",:style=>"min-width:560px;width:650px;margin: 0 auto;margin-top:50px"}
     %li{:class=>"tab-pane"} 
     %li{:class=>"tab-pane active"}  
@@ -42,6 +44,7 @@
                 = submit_tag "Save Changes",:class=>"btn btn-inverse"
               %td
                 = button_to " Go Back ", '#', :class=>"btn btn-inverse", :onclick => 'history.back(); return false;'
+    %li{:class=>"tab-pane"}             
 
 
 
