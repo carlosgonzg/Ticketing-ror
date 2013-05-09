@@ -21,7 +21,7 @@
                 %select{:name=>"SelectCategory", :active => "false"}
                   %option{:value=>"1"} Request id
                   %option{:value=>"2"} User Name
-                  %option{:value=>"3"} Status
+                  %option{:value=>"3"} complete
                   %option{:value=>"4"} Urgent
                   %option{:value=>"5"} All
               %td
@@ -40,7 +40,7 @@
                 %th ID
                 %th Username
                 %th Subject
-                %th Status
+                %th Complete
                 %th Date
                 %th Urgent
               %tr
@@ -57,7 +57,7 @@
                       %i{:class=>"icon-remove"}
                   %td= request.created_at
                   %td
-                    - if (!request.urgent.to_s.empty?) then
+                    - if (request.urgent) then
                       %i{:class=>"icon-ok"}
                     - else
                       %i{:class=>"icon-remove"}                      

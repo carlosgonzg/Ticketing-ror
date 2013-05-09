@@ -1,7 +1,8 @@
 %div{:class=> "tabbable tabs-left container"}
   %ul{:class=>"nav nav-tabs"}
-    %li
-      =link_to "My Dashboard", dashboard_request_index_path
+    -if session[:User][:UserType] == 0 || session[:User][:UserType] == 1
+      %li 
+        =link_to "My Dashboard", dashboard_request_index_path
     %li
       =link_to "New Request", new_request_path
     %li{:class=>"active"}
@@ -20,7 +21,7 @@
                 %select{:name=>"SelectCategory", :active => "false"}
                   %option{:value=>"1"} Request id
                   %option{:value=>"2"} User Name
-                  %option{:value=>"3"} Status
+                  %option{:value=>"3"} complete
                   %option{:value=>"4"} Urgent
                   %option{:value=>"5"} All
               %td
@@ -37,9 +38,9 @@
             %thead
               %tr
                 %th ID
-                %th Name
+                %th Username
                 %th Subject
-                %th Status
+                %th Complete
                 %th Date
                 %th Urgent
               %tr
@@ -48,12 +49,17 @@
                 %tr
                   %td= link_to "#{request.id}",edit_request_path(request.id)
                   %td= request.userName
-                  %td= request.ComputerName
                   %td= request.Subject
-                  %td= request.Status
+                  %td
+                    - if (!request.complete) then
+                      %i{:class=>"icon-ok"}
+                    - else
+                      %i{:class=>"icon-remove"}
                   %td= request.created_at
                   %td
-                    - if (!request.urgent.to_s.empty?) then
+                    - if (request.urgent) then
                       %i{:class=>"icon-ok"}
-                %tr
+                    - else
+                      %i{:class=>"icon-remove"}                      
+                %tr  
 
