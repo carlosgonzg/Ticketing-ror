@@ -42,22 +42,28 @@
         %td
           %label Update
           - if session[:User][:UserType]==0
-            %textarea{:rows=>"3", :name=>"UpdateText", :style=>"width:545px" }
+            - if @request.complete
+              %textarea{:rows=>"3", :name=>"UpdateText", :style=>"width:545px" , :disabled => "true"}
+            - else
+              %textarea{:rows=>"3", :name=>"UpdateText", :style=>"width:545px" }
           - else
             %textarea{:rows=>"3", :name=>"UpdateText", :style=>"width:545px" , :disabled => "true"}
       %tr
         %td
           %label Solution
           - if session[:User][:UserType]==0
-            %textarea{:rows=>"3", :name=>"Solution", :style=>"width:545px" }
+            - if @request.complete
+              %textarea{:rows=>"3", :name=>"Solution", :style=>"width:545px" , :disabled => "true"}
+            - else
+              %textarea{:rows=>"3", :name=>"Solution", :style=>"width:545px" }
           - else
             %textarea{:rows=>"3", :name=>"Solution", :style=>"width:545px" , :disabled => "true"}
       %tr
         %td
           %label Assigned Issue
-          %select{:name=>"Owner", :align=>"right", :value => @request.owner}
+          %select{:name=>"Owner", :align=>"right"}
             - @users.each do |user|
-              %option{:value=>user.Username}#{user.Username}
+              %option{:selected => @request.owner == user.Username, :value=>user.Username}#{user.Username}
       %tr
         %td
           %label{:class=>"checkbox"}

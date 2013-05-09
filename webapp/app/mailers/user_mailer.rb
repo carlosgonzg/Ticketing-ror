@@ -10,13 +10,15 @@ class UserMailer < ActionMailer::Base
       end
 	mail(:to=>email_array,:subject=> "#{request_r.Subject}")
   end
-  def complete_request(user, request_r)
+  def complete_request(user_u, request_r)
+    @user = user_u
     @request = request_r
       mail(:to=>[user[:email]],:subject=> "Your request was completed")
   end
-  def new_owner(user, request_r)
+  def new_owner(user_u, request_r)
+    @user = user_u
     @request = request_r
-      mail(:to=>[user[:email]],:subject=> "You have been assigned a new request")
+    mail(:to=>[user[:email]],:subject=> "You have been assigned a new request")
   end
   def create_user(user)
     @user = user

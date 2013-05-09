@@ -47,7 +47,7 @@ class RequestController < ApplicationController
     def update
       new_update = params[:UpdateText]
       @request = Request.find(params[:id])
-      if(new_update.empty?)
+      if(new_update.nil?)
         if(@request.updates.create(:UpdateText=>new_update, :Date=>DateTime.now.to_s))
           flash[:notice] = "The request was successfully updated"
         else
