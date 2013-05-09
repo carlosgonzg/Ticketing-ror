@@ -47,7 +47,31 @@ class RequestController < ApplicationController
     def update
       new_update = params[:UpdateText]
       @request = Request.find(params[:id])
-      @request.updates.create(:UpdateText=>new_update, :Date=>DateTime.now.to_s)
+      if(new_update.empty?)
+        if(@request.updates.create(:UpdateText=>new_update, :Date=>DateTime.now.to_s))
+          flash[:notice] = "The request was successfully updated"
+        else
+          flash[:error] ="There was an error updating the request"
+        end
+      end
+      if(params[:Owner] != @request.owner)
+          @request.owner = params[:Owner]
+          if(@request.save)
+            UserMailer.new_owner(session[:User],@request).deliver
+          else
+              flash[:error] = "There was an issue assigning a new owner"
+          end
+      end
+      if(params[:complete])
+        @request.complete = true
+        @request.Solution = params[:Solution]
+        if(@request.save)
+          UserMailer.complete_request(session[:User],@request).deliver
+          flash[:notice] = "The request was successfully closed"
+        else
+          flash[:error] = "There was an error closing the request"
+        end
+      end
       redirect_to request_index_path
     end
 
