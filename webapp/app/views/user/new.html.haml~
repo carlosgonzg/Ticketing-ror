@@ -33,9 +33,6 @@
                 %label email:
                 %input{:type=>"text",:id=>"email",:name=>"email",:placeholder=>"Type email here",:style=>"height:30px"}
             %tr
-              %td{:colspan=>"2"}
-                %br
-            %tr
               %td
                 = submit_tag "Create User",:class=>"btn btn-inverse"
               %td

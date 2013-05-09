@@ -51,7 +51,28 @@ class UserController < ApplicationController
     end
     
 	def create
-
+		count_user = User.count(:all,:conditions=>"Username='#{params[:Username]}'")
+        if(!params[:Fullname].blank? && !params[:Username].blank? && !params[:email].blank? && count_user==0) then
+          	user = User.new
+      		user.UserType = params[:UserType]
+ 			user.Fullname = params[:Fullname]
+			user.Username = params[:Username]
+			user.password_digest = params[:Username]
+			user.email = params[:email]
+			if(user.save) then
+                UserMailer.create_user(user).deliver
+				flash[:notice] = "The User was successfully created."
+			else
+				flash[:error] = "There was an error saving the new request"
+			end
+		else
+			if(count_user != 0) then
+				flash[:error] = "The Username already exists"
+			else
+				flash[:error] = "Information not completed. Please complete the information"
+			end
+		end
+		redirect_to new_user_path
 	end
     
     def authenticate
