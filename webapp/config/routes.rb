@@ -9,7 +9,7 @@ Webapp::Application.routes.draw do
 	resources :user do
 		collection do
 			get :login
-            get :authenticate
+            post :authenticate
             get :logout
 		end
 	end

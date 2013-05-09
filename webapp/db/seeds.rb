@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 requests=[{:ComputerName => 'meenal tablet',:IssueType=>1,:Subject=>'Printer is not working', :Description => 'My PC does not recognize the printer when I connect it to the USB', :urgent => 'true', :owner => 'cagonzalez',:userName=>'mkhandelwal'},
-{:ComputerName => 'micheals computer',:IssueType=>2, :Subject => 'word not working',:Description=>'My Word does not work :(', :urgent => 'false', :owner => 'mlcarter',:userName=>'mlcarter'},
-  	 ]
+{:ComputerName => 'micheals computer',:IssueType=>2, :Subject => 'word not working',:Description=>'My Word does not work :(', :urgent => 'false', :owner => 'mlcarter',:userName=>'mlcarter'}]
+
 user1 = {:UserType => 0, :Fullname => "Michael Carter", :Username => "mlcarter",:password_digest => "mlcarter",:email => "mlcarter815@gmail.com" }
 user2 = {:UserType => 0, :Fullname => "Meenal Khandelwal",:Username => "mkhandelwal",:password_digest => "mkhandelwal",:email => "meenal.khandelwal616@gmail.com" }
 user3 = {:UserType => 0, :Fullname => "Carlos Gonzalez", :Username => "cagonzalez",:password_digest => "cagonzalez",:email => "carltronik@gmail.com" }
