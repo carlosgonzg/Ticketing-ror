@@ -8,7 +8,7 @@ describe 'correct path' do
     end
     
     it 'should return results' do
-      get :search 
+      get :search
     end  
   end
 
