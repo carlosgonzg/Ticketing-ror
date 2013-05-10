@@ -43,11 +43,17 @@ class UserController < ApplicationController
           end
     	end
 
-        def index
+    def index
 	end
 
 	def show
 	 @user = User.find(session[:User][:id])  
+    end
+    
+    def new
+        if session[:User][:UserType] == 2 then
+            redirect_to user_path(session[:User][:id])
+        end
     end
     
 	def create
@@ -83,14 +89,14 @@ class UserController < ApplicationController
             session[:User] = user_hash
             if session[:return_to].blank? then
                 redirect_to new_request_path
-                else
+            else
                 redirect_to session[:return_to]
                 session.delete :return_to
             end
-            elsif answer == -1
+        elsif answer == -1
 			flash[:error] = "Incorrect Password"
 			redirect_to login_user_index_path
-            else
+        else
 			flash[:error] = "The Username does not exists"
 			redirect_to login_user_index_path
 		end
