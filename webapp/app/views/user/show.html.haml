@@ -3,8 +3,9 @@
     = link_to "View Profile",user_path(session[:User][:id])
   %li
     = link_to "Edit Profile",edit_user_path(session[:User][:id])
-  %li
-    = link_to "Create User",new_user_path
+  - if @user.UserType != 2  
+    %li
+      = link_to "Create User",new_user_path
   %div{:class=>"tab-content",:style=>"min-width:560px;width:650px;margin: 0 auto;margin-top:50px"}
     %li{:class=>"tab-pane active"}    
       %h1 User Information of #{@user.Username}
